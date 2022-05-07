@@ -7,7 +7,7 @@ public class AlternatingSubarray {
     public static void main(String[] args) {
         ArrayList<Integer> ans = solve(
                 new int[] { 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1 }, 1);
-        System.out.println();
+        System.out.println(ans);
     }
 
     static ArrayList<Integer> solve(int[] A, int B) {
