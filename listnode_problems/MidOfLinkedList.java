@@ -1,3 +1,5 @@
+package listnode_problems;
+
 public class MidOfLinkedList {
 
     public static void main(String[] args) {
