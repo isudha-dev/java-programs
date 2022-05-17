@@ -1,3 +1,5 @@
+package subarray_problems;
+
 public class SubarraySumLessThan {
 
     // https://www.scaler.com/academy/mentee-dashboard/class/25551/homework/problems/16089?navref=cl_tt_lst_nm

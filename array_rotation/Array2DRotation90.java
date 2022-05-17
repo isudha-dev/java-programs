@@ -1,7 +1,9 @@
-public class Array2DRotation180 {
+package array_rotation;
+
+public class Array2DRotation90 {
 
     public static void main(String[] args) {
-        int[][] A = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
+        int[][] A = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 }, { 13, 14, 15 } };
 
         // array before
         for (int i = 0; i < A.length; i++) {
@@ -13,25 +15,23 @@ public class Array2DRotation180 {
 
         System.out.println();
 
-        int[][] B = new int[A.length][A[0].length];
+        int[][] B = new int[A[0].length][A.length];
 
         // row col change
-        int n = A.length;
-        for (int r = 0; r < A.length; r++) {
-            for (int c = 0; c < A[0].length; c++) {
-                B[n - 1 - r][c] = A[r][c];
+        for (int c = 0; c < A[0].length; c++) {
+            for (int r = 0; r < A.length; r++) {
+                B[c][r] = A[r][c];
             }
-
         }
 
         // reversing
-        int nB = B[0].length;
+        int n = B[0].length;
         for (int r = 0; r < B.length; r++) {
             int c = 0;
             while (c < B[0].length / 2) {
                 int temp = B[r][c];
-                B[r][c] = B[r][nB - 1 - c];
-                B[r][nB - 1 - c] = temp;
+                B[r][c] = B[r][n - 1 - c];
+                B[r][n - 1 - c] = temp;
                 c++;
             }
         }

@@ -1,3 +1,5 @@
+package subarray_problems;
+
 public class AmazingSubArrays {
 
     // https://www.scaler.com/academy/mentee-dashboard/class/25589/homework/problems/1054?navref=cl_tt_lst_nm

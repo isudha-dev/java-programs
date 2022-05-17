@@ -1,3 +1,5 @@
+package subarray_problems;
+
 import java.util.ArrayList;
 
 public class AlternatingSubarray {

@@ -1,3 +1,5 @@
+package array_rotation;
+
 public class Array2DRotationTransposeSq {
 
     public static void main(String[] args) {

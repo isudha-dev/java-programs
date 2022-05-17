@@ -1,4 +1,6 @@
-public class Array2DRotationTranspose {
+package array_rotation;
+
+public class Array2DRotation270 {
 
     public static void main(String[] args) {
         int[][] A = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
@@ -15,11 +17,24 @@ public class Array2DRotationTranspose {
 
         int[][] B = new int[A[0].length][A.length];
 
-        for (int r = 0; r < A[0].length; r++) { // 0 - 4
-            for (int c = 0; c < A.length; c++) { // 0 - 3
-                B[r][c] = A[c][r];
+        // row col change
+        for (int r = 0; r < A.length; r++) {
+            for (int c = 0; c < A[0].length; c++) {
+                B[c][r] = A[r][c];
             }
 
+        }
+
+        // reversing
+        int nB = B.length;
+        for (int c = 0; c < B[0].length; c++) {
+            int r = 0;
+            while (r < B.length / 2) {
+                int temp = B[r][c];
+                B[r][c] = B[nB - 1 - r][c];
+                B[nB - 1 - r][c] = temp;
+                r++;
+            }
         }
 
         for (int i = 0; i < B.length; i++) {

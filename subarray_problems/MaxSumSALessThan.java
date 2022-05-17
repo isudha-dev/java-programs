@@ -1,3 +1,5 @@
+package subarray_problems;
+
 public class MaxSumSALessThan {
 
     public static void main(String[] args) {
