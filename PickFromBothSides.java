@@ -6,6 +6,7 @@ public class PickFromBothSides {
                 new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, 5));
     }
 
+    // approach 1: with O(N) TC
     static int solve(int[] A, int B) {
         int n = A.length;
         long[] ps = getPrefixSumArray(A);
@@ -60,6 +61,9 @@ public class PickFromBothSides {
     }
 
 }
+
+// approach 2: with O(1) TC, by adding 1 array element and removing 1 array
+// element. so we wont need prefix sum array.
 
 // -50293468
 // -819
