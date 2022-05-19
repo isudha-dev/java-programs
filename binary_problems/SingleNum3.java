@@ -46,7 +46,6 @@ public class SingleNum3 {
     }
 
     private static boolean checkBitIsSet(int num, int pos) {
-        int p = pos;
         int number = num;
         while (pos > 0) {
             number = number >> 1;
