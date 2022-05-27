@@ -1,7 +1,7 @@
 public class SpiralOrderMatrix {
     // https://www.scaler.com/academy/mentee-dashboard/class/25553/assignment/problems/63?navref=cl_tt_nv
     public static void main(String[] args) {
-        int[][] B = generateMatrix(1);
+        int[][] B = generateMatrix(5);
 
         for (int i = 0; i < B.length; i++) {
             for (int j = 0; j < B[0].length; j++) {
