@@ -16,10 +16,14 @@ public class ColorfulNum {
             arr.add(A % 10);
             A = A / 10;
         }
+
+        int n = arr.size();
+        int subSeq = (n * (n + 1) / 2) - 1;
         int inc = 0;
         Integer prod = 1;
         HashSet<Integer> prodSet = new HashSet<>();
-        for (int i = 0; i < arr.size(); i = i + inc) {
+
+        for (int i = 1; i <= subSeq; i++) {
             for (int j = 0; j <= i; j++) {
                 prod *= arr.get(j);
                 if (prodSet.contains(prod)) {
