@@ -1,35 +1,32 @@
 package maths;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class ColorfulNum {
 
     // https://www.scaler.com/academy/mentee-dashboard/class/25565/homework/problems/275?navref=cl_tt_lst_nm
     public static void main(String[] args) {
-        colorful(4561237);
+        colorful(4568237);
     }
 
     static int colorful(int A) {
-        ArrayList<Integer> arr = new ArrayList<>();
+        HashSet<Long> hs = new HashSet<>();
+
         while (A > 0) {
-            arr.add(A % 10);
-            A = A / 10;
-        }
-
-        int n = arr.size();
-        int subSeq = (n * (n + 1) / 2) - 1;
-        int inc = 0;
-        Integer prod = 1;
-        HashSet<Integer> prodSet = new HashSet<>();
-
-        for (int i = 1; i <= subSeq; i++) {
-            for (int j = 0; j <= i; j++) {
-                prod *= arr.get(j);
-                if (prodSet.contains(prod)) {
+            Long prevPrd = 1L;
+            Long B = (long) A;
+            while (B > 0) {
+                Long digit = B % 10;
+                Long prod = digit * prevPrd;
+                if (hs.contains(prod)) {
                     return 0;
+                } else {
+                    hs.add(prod);
                 }
+                prevPrd = prod;
+                B = B / 10;
             }
+            A = A / 10;
         }
 
         return 1;
