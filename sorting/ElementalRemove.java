@@ -9,7 +9,7 @@ public class ElementalRemove {
     // https://www.scaler.com/academy/mentee-dashboard/class/25583/homework/problems/11087
     public static void main(String[] args) {
 
-        System.out.println(solve(new ArrayList(Arrays.asList(new Integer[] { 2 }))));
+        System.out.println(solve(new ArrayList<Integer>(Arrays.asList(new Integer[] { 2 }))));
 
     }
 

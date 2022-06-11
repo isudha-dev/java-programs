@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class SortByColor {
     public static void main(String[] args) {
-        System.out.println(sortColors(new ArrayList(Arrays.asList(new Integer[] { 0 }))));
+        System.out.println(sortColors(new ArrayList<Integer>(Arrays.asList(new Integer[] { 0 }))));
     }
 
     static ArrayList<Integer> sortColors(ArrayList<Integer> A) {

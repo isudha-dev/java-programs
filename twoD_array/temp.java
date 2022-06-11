@@ -50,6 +50,7 @@ public class temp {
             }
         }
         scn.nextLine();
+        scn.close();
 
     }
 

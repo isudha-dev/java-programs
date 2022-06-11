@@ -7,7 +7,7 @@ import java.util.Collections;
 public class ArrayInAP {
 
     public static void main(String[] args) {
-        System.out.println(solve(new ArrayList(Arrays.asList(new Integer[] { 2, 4, 1 }))));
+        System.out.println(solve(new ArrayList<Integer>(Arrays.asList(new Integer[] { 2, 4, 1 }))));
     }
 
     static int solve(ArrayList<Integer> A) {
