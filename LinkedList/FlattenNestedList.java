@@ -1,7 +1,6 @@
-package LinkedList;
+package linkedlist;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class FlattenNestedList {
     public static void main(String[] args) {
@@ -39,27 +38,34 @@ public class FlattenNestedList {
 
     class NestedIterator {
 
-        Iterator<NestedInteger> itr;
+        ArrayList<Integer> actual;
+        int idx;
+        int n;
 
         NestedIterator(ArrayList<NestedInteger> nestedList) {
-            itr = nestedList.iterator();
+            actual = new ArrayList<>();
+            rec(nestedList);
+            n = actual.size();
+            idx = 0;
+        }
+
+        void rec(ArrayList<NestedInteger> nestedList) {
+            for (int i = 0; i < nestedList.size(); i++) {
+                if (nestedList.get(i).isInteger()) {
+                    actual.add(nestedList.get(i).getInteger());
+                } else {
+                    rec(nestedList.get(i).getList());
+                }
+            }
         }
 
         int next() {
-            return itr.next().getInteger();
+            return actual.get(idx++);
         }
 
         boolean hasNext() {
-            if (itr.hasNext()) {
-                if (itr.next().isInteger()) {
-                    return true;
-                } else {
-                    ArrayList<NestedInteger> al = itr.next().getList();
-                    if (al.size() > 0) {
-                        return true;
-                    }
-                }
-            }
+            if (idx < n)
+                return true;
             return false;
         }
     }
