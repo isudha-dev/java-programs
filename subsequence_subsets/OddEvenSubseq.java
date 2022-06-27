@@ -12,9 +12,6 @@ public class OddEvenSubseq {
         int len = 0;
         boolean isOdd = (A.get(0) & 1) != 1 ? false : true;
 
-        // if ((A.get(0) & 1) != 1) {
-        // isOdd = false;
-        // }
         for (Integer i : A) {
             if ((i & 1) == 1 && isOdd) {
                 len++;
