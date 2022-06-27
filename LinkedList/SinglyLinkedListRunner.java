@@ -26,7 +26,7 @@ public class SinglyLinkedListRunner {
         A.add(new ArrayList<Integer>(Arrays.asList(new Integer[] { 3, 2, -1 })));
 
         linkedlist.SinglyLinkedList.ListNode ln = newSol.solve(A);
-        System.out.println("Wait");
+        System.out.println(ln);
 
     }
 

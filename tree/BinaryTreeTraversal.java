@@ -1,6 +1,7 @@
 package tree;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class BinaryTreeTraversal {
 
@@ -157,23 +158,28 @@ public class BinaryTreeTraversal {
     }
 
     public ArrayList<Integer> pathToNode(TreeNode A, int B) {
-        if (A == null) {
-            return null;
-        }
         ArrayList<Integer> ans = new ArrayList<>();
-        if (A.val == B) {
-            ans.add(A.val);
-        }
-
-        pathToNode(A.left, B);
-        pathToNode(A.right, B);
-
+        pathToNodePrivate(A, B, ans);
+        Collections.sort(ans);
         return ans;
     }
 
-    private ArrayList<Integer> pathToNodePrivate(TreeNode A, int B, ArrayList<Integer> ans) {
+    private boolean pathToNodePrivate(TreeNode A, int B, ArrayList<Integer> ans) {
 
-        return null;
+        if (A == null) {
+            return false;
+        }
+        if (A.val == B) {
+            ans.add(A.val);
+            return true;
+        }
+        boolean isExist = pathToNodePrivate(A.left, B, ans) || pathToNodePrivate(A.right, B, ans);
+
+        if (isExist) {
+            ans.add(A.val);
+        }
+
+        return isExist;
     }
 
     public static void main(String[] args) {
@@ -200,7 +206,7 @@ public class BinaryTreeTraversal {
         root.left = left;
         root.right = right;
 
-        System.out.println(it.invertTree(tn));
+        System.out.println(it.pathToNode(tn, 27));
 
     }
 
