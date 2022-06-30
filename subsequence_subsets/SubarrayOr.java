@@ -48,4 +48,17 @@ public class SubarrayOr {
         return (int) (sum % mod); // taking mod for all subarray sum
     }
 
+    static int solve2(ArrayList<Integer> A) {
+        int n = A.size();
+        int maxA = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            maxA = Math.max(maxA, A.get(i));
+        }
+        for (int i = 0; i < Math.log(maxA); i++) {
+            for (int j = 0; j < n; j++) {
+
+            }
+        }
+        return 0;
+    }
 }
