@@ -1,12 +1,14 @@
+package prefixsum;
+
 public class PickFromBothSides {
 
     public static void main(String[] args) {
 
-        System.out.println(solve(
+        System.out.println(solve1(
                 new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, 5));
     }
 
-    // approach 1: with O(N) TC
+    // approach 1: with O(N) TC, O(N) SC
     static int solve(int[] A, int B) {
         int n = A.length;
         long[] ps = getPrefixSumArray(A);
@@ -29,9 +31,8 @@ public class PickFromBothSides {
                 sumR = getSumOfPSRange(ps, n - j, n - 1);
             }
             tempSum = sumL + sumR;
-            if (tempSum > maxSum) {
-                maxSum = tempSum;
-            }
+            maxSum = Math.max(maxSum, tempSum);
+
             i++;
         }
         return (int) maxSum;
@@ -60,10 +61,38 @@ public class PickFromBothSides {
 
     }
 
-}
+    // approach 2: with O(N) TC, O(1) SC, by adding 1 array element and removing 1
+    // array element. so we wont need prefix sum array.
+    static int solve1(int[] A, int B) {
+        int n = A.length;
 
-// approach 2: with O(1) TC, by adding 1 array element and removing 1 array
-// element. so we wont need prefix sum array.
+        int i = 1, j;
+        long maxSum = Long.MIN_VALUE;
+        long tempSum = 0;
+        long sumL = 0, sumR = 0;
+
+        for (int k = n - 1; k >= n - B; k--) {
+            sumR += A[k];
+        }
+
+        tempSum = sumL + sumR;
+        maxSum = Math.max(maxSum, tempSum);
+
+        while (i <= B) {
+            j = B - i;
+
+            sumL = sumL + A[i - 1];
+            sumR = sumR - A[n - j - 1];
+
+            tempSum = sumL + sumR;
+            maxSum = Math.max(maxSum, tempSum);
+
+            i++;
+        }
+        return (int) maxSum;
+    }
+
+}
 
 // -50293468
 // -819
