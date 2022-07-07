@@ -1,4 +1,4 @@
-package arrays;
+package subarray;
 
 import java.util.List;
 
