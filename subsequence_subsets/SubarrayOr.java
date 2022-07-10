@@ -1,27 +1,35 @@
 package subsequence_subsets;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SubarrayOr {
 
     public static void main(String[] args) {
-        System.out.println(solve1(new int[] { 78, 567, 98, 54, 3456 }));
+        System.out.println(solve(new ArrayList<Integer>(Arrays.asList(new Integer[] { 1, 2, 3, 4, 5 }))));
     }
 
+    // 398980269 693947537
     static int solve(ArrayList<Integer> A) {
-        double ans = 0;
-        double subarrayOr;
+        long ans = 0;
         int n = A.size();
-        int idx = 0;
-        double p = Math.pow(10, 9) + 7;
-        while (idx < n) {
-            subarrayOr = A.get(idx);
-            for (int i = idx; i < n; i++) {
-                subarrayOr = (long) subarrayOr | A.get(i);
-                ans = (ans % p + subarrayOr % p) % p;
+        long totalSubarrays = n * (n + 1) / 2;
+
+        for (int i = 0; i < 32; i++) {
+            long count0 = 0;
+            long subarrayWithAll0 = 0;
+            for (int j = 0; j < n; j++) {
+                if ((A.get(j) & (1 << i)) == 0) {
+                    count0 += 1;
+                }
+                if ((A.get(j) & (1 << i)) > 0 || j == n - 1) {
+                    subarrayWithAll0 += (count0 * (count0 + 1)) / 2;
+                    count0 = 0;
+                }
             }
 
-            idx++;
+            ans += (totalSubarrays - subarrayWithAll0) * (long) Math.pow(2, i);
+            ans = ans % 1000000007;
         }
 
         return (int) ans;
@@ -60,5 +68,27 @@ public class SubarrayOr {
             }
         }
         return 0;
+    }
+
+    static int solve3(int[] A) {
+        long n = A.length;
+        long tot_subArray = (n * (n + 1)) / 2;
+        long ans = 0;
+        for (int i = 0; i < 32; i++) {
+            long subArray = 0;
+            long bitzero = 0;
+            for (int j = 0; j < n; j++) {
+                if ((A[j] & (1 << i)) == 0) {
+                    bitzero += 1;
+                }
+                if ((A[j] & (1 << i)) > 0 || j == n - 1) {
+                    subArray += (bitzero * (bitzero + 1)) / 2;
+                    bitzero = 0;
+                }
+            }
+            ans += (tot_subArray - subArray) * (long) Math.pow(2, i);
+            ans = ans % 1000000007;
+        }
+        return (int) ans;
     }
 }
