@@ -3,7 +3,7 @@ package binaryproblems;
 public class CountTotalSetBits {
 
     public static void main(String[] args) {
-        System.out.println(solve1(100000000));
+        System.out.println(solve2(4));
     }
 
     // exp 314447109 val 100000000 act
@@ -42,4 +42,34 @@ public class CountTotalSetBits {
         return (int) count1;
     }
 
+    static int solve2(int A) {
+        return getBits(A);
+    }
+
+    private static int getBits(int N) {
+        if (N == 1) {
+            return 1;
+        }
+        if (N == 2) {
+            return 2;
+        }
+
+        int ans = 0;
+        // get power of 2 less than N
+        int temp = N;
+        int pow = 0;
+        while (temp != 0) {
+            pow++;
+            temp = temp >> 1;
+        }
+        pow--;
+        int pow2 = (int) Math.pow(2, pow);
+        ans += Math.pow(2, pow) / 2 * pow;
+        N = N - (pow2 - 1);
+        ans += N;
+        N = N - 1;
+        ans += getBits(N);
+        return ans;
+
+    }
 }
