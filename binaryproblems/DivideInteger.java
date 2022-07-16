@@ -10,11 +10,10 @@ public class DivideInteger {
         int divident = A;
         int res = 0;
         for (int i = 30; i >= 0; i--) {
-            int multipler = (1 << i);
-            int ans = B * multipler;
-            if (ans <= divident) {
+            int multipler = (B << i);
+            if (multipler <= divident) {
                 res += multipler;
-                divident = divident - ans;
+                divident = divident - multipler;
             }
         }
 
