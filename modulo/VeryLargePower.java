@@ -4,7 +4,7 @@ public class VeryLargePower {
 
     public static void main(String[] args) {
         System.out.println(pow(71045970, 41535484, 64735492));
-        // System.out.println(largePower(2, 20));
+        System.out.println(largePower(2, 20));
     }
 
     // 20805472
