@@ -34,7 +34,7 @@ public class BeggersOutsideTemple {
             beggers[i] = sum;
         }
 
-        return new ArrayList(Arrays.stream(beggers).boxed().collect(Collectors.toList()));
+        return new ArrayList<Integer>(Arrays.stream(beggers).boxed().collect(Collectors.toList()));
     }
 
 }
