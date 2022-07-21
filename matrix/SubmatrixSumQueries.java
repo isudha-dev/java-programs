@@ -1,4 +1,4 @@
-package submatrix;
+package matrix;
 
 // https://www.scaler.com/academy/mentee-dashboard/class/29823/assignment/problems/4088?navref=cl_tt_nv
 // Sum may be large, so return the answer mod 109 + 7.

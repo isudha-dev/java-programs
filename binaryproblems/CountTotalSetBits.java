@@ -3,7 +3,7 @@ package binaryproblems;
 public class CountTotalSetBits {
 
     public static void main(String[] args) {
-        System.out.println(solve2(4));
+        System.out.println(solve3(100000000));
     }
 
     // exp 314447109 val 100000000 act
@@ -72,4 +72,19 @@ public class CountTotalSetBits {
         return ans;
 
     }
+
+    static int solve3(int N) {
+        int mod = 1000000007;
+        if (N == 0) {
+            return 0;
+        }
+        int ans = 0;
+        int k = (int) Math.floor(Math.log(N) / Math.log(2));
+        ans += (Math.pow(2, k - 1) * k) % mod;
+        ans += (N - Math.pow(2, k) + 1) % mod;
+        ans += solve3(N - (int) Math.pow(2, k));
+
+        return ans % mod;
+    }
+
 }
