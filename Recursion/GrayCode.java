@@ -5,36 +5,27 @@ import java.util.ArrayList;
 public class GrayCode {
 
     public static void main(String[] args) {
-        System.out.println(grayCode(2));
+        System.out.println(grayCode(4));
     }
 
     static ArrayList<Integer> grayCode(int A) {
         ArrayList<Integer> res = new ArrayList<Integer>();
-        int p = 0;
-        return solve(res, A, p);
+        res.add(0);
+        res.add(1);
+        return solve(res, A);
     }
 
-    static ArrayList<Integer> solve(ArrayList<Integer> res, int A, int element) {
-        if (res.size() == (1 << A))
+    static ArrayList<Integer> solve(ArrayList<Integer> res, int A) {
+        if (A == 1) {
             return res;
-
-        res.add((element ^ (element >> 1)));
-
-        return solve(res, A, element + 1);
-    }
-
-    static ArrayList<Integer> grayCode1(int A) {
-        int n = A;
-        ArrayList<Integer> result = new ArrayList<>();
-        result.add(0);
-        for (int i = 0; i < n; i++) {
-            int curSize = result.size();
-            // push back all element in result in reverse order
-            for (int j = curSize - 1; j >= 0; j--) {
-                result.add(result.get(j) + (1 << i));
-            }
         }
-        return result;
+        solve(res, A - 1);
+        int n = res.size();
+        for (int i = n - 1; i >= 0; i--) {
+            res.add(res.get(i) + n);
+        }
+        return res;
+
     }
 
 }
