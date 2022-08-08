@@ -16,7 +16,7 @@ public class MergeSortedArrays {
         ArrayList<Integer> ans = new ArrayList<>();
         int n = A.size();
         int m = B.size();
-        int p1 = 0, p2 = 0, i = 0;
+        int p1 = 0, p2 = 0;
 
         while (p1 < n && p2 < m) {
             if (A.get(p1) < B.get(p2)) {
@@ -37,6 +37,37 @@ public class MergeSortedArrays {
         }
 
         return ans;
+    }
+
+    static int[] mergeSortedArray(int[] A, int[] B) {
+        int n = A.length;
+        int m = B.length;
+        int[] ans = new int[n + m];
+
+        int p1 = 0, p2 = 0, idx = 0;
+        while (p1 < n && p2 < m) {
+            if (A[p1] < B[p2]) {
+                ans[idx] = A[p1];
+                idx++;
+                p1++;
+            } else {
+                ans[idx] = B[p2];
+                idx++;
+                p2++;
+            }
+        }
+        while (p1 < n) {
+            ans[idx] = A[p1];
+            p1++;
+            idx++;
+        }
+        while (p2 < m) {
+            ans[idx] = B[p2];
+            idx++;
+            p2++;
+        }
+        return ans;
+
     }
 
 }
