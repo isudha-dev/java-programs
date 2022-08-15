@@ -55,16 +55,18 @@ public class MedianOfArray {
         }
         int low = 0;
         int high = a.size() - 1;
+        int ans = 0;
 
         while (low <= high) {
             int mid = (low + high) / 2;
-            if (a.get(mid) < target) {
+            if (a.get(mid) <= target) {
+                ans = mid;
                 low = mid + 1;
             } else {
                 high = mid - 1;
             }
         }
-        return low;
+        return ans + 1;
     }
 
     public double findMedianSortedArraysTemp(final List<Integer> a, final List<Integer> b) {

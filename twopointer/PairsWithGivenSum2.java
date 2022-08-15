@@ -41,7 +41,7 @@ public class PairsWithGivenSum2 {
             }
         }
 
-        return count;
+        return count % mod;
     }
 
 }
