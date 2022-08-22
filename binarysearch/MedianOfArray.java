@@ -8,8 +8,8 @@ public class MedianOfArray {
 
     public static void main(String[] args) {
         MedianOfArray moa = new MedianOfArray();
-        List<Integer> a = new ArrayList<Integer>(Arrays.asList(new Integer[] { -41, -4, 15, 17, 28, 30, 40 }));
-        List<Integer> b = new ArrayList<Integer>(Arrays.asList(new Integer[] { -41, -40, -35, -30, -8, 6, 6, 15, 24 }));
+        List<Integer> a = new ArrayList<Integer>(Arrays.asList(new Integer[] { -50, -41, -40, -19, 5, 21, 28 }));
+        List<Integer> b = new ArrayList<Integer>(Arrays.asList(new Integer[] { -50, -21, -10 }));
         int n = a.size();
         int m = b.size();
         int k = (n + m) / 2;
@@ -32,41 +32,61 @@ public class MedianOfArray {
         while (low <= high) {
             int mid = (low + high) / 2;
             int count = 0;
-            count += findSmallerElements(a, mid);
-            count += findSmallerElements(b, mid);
+            count += lowerBound(a, mid);
+            count += lowerBound(b, mid);
 
-            if (count < k) {
-                low = mid + 1;
-            } else if (count > k) {
-                ans = mid;
+            if (count > k) {
                 high = mid - 1;
-            } else {
+            } else if (count <= k) {
                 ans = mid;
+                low = mid + 1;
+            } else {
                 low = mid + 1;
             }
         }
         return ans;
     }
 
-    public int findSmallerElements(List<Integer> a, int target) {
+    public int lowerBound(List<Integer> a, int target) {
 
         if (target > a.get(a.size() - 1)) {
             return a.size();
         }
         int low = 0;
         int high = a.size() - 1;
-        int ans = 0;
 
         while (low <= high) {
             int mid = (low + high) / 2;
             if (a.get(mid) <= target) {
-                ans = mid;
                 low = mid + 1;
             } else {
                 high = mid - 1;
             }
         }
-        return ans + 1;
+        return low;
+    }
+
+    public int upperBound(List<Integer> a, int target) {
+
+        if (target > a.get(a.size() - 1)) {
+            return a.size();
+        }
+
+        int low = 0;
+        int high = a.size() - 1;
+        int ans = 0;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (a.get(mid) > target) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
     }
 
     public double findMedianSortedArraysTemp(final List<Integer> a, final List<Integer> b) {
