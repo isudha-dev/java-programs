@@ -13,7 +13,15 @@ public class LinkedListOps {
             len--;
         }
 
-        System.out.println(llo.reverseList(head));
+        num = 10;
+        ListNode newHead = new ListNode(num);
+        len = 2;
+        while (len > 0) {
+            llo.insertAtLast(newHead, ++num);
+            len--;
+        }
+
+        System.out.println(llo.reverseListB(head, 2));
 
     }
 
@@ -169,6 +177,48 @@ public class LinkedListOps {
             System.out.println(temp.val + " ");
             temp = temp.next;
         }
+    }
+
+    // reverse B items in ll at a time
+    public ListNode reverseListB(ListNode A, int B) {
+
+        ListNode currTail = null;
+        ListNode currHead = A;
+        ListNode tempNode = currHead;
+
+        while (tempNode != null) {
+            for (int i = 1; i < B; i++) {
+                tempNode = tempNode.next;
+            }
+            ListNode newHead = tempNode.next;
+            currTail = tempNode;
+            currTail.next = null;
+
+            ListNode reversedHead = reverseList(currHead);
+            A = insertListAtHead(reversedHead, newHead);
+            currHead = newHead;
+            tempNode = currHead;
+        }
+
+        return A;
+    }
+
+    // insert ll at the start of another ll
+    public ListNode insertListAtHead(ListNode newList, ListNode oldList) {
+        // traverse and get tail node of newList
+        ListNode tempNode = newList;
+        while (tempNode.next != null) {
+            tempNode = tempNode.next;
+        }
+
+        tempNode.next = oldList;
+        return newList;
+    }
+
+    // insert ll at before given node
+    public ListNode insertListBeforeNode(ListNode newList, ListNode oldList, int position) {
+
+        return null;
     }
 
 }
