@@ -11,7 +11,6 @@ public class DoubleCharTrouble {
     public static String solve(String A) {
         Stack<Character> stk = new Stack<Character>();
         for (Character c : A.toCharArray()) {
-
             if (!stk.empty() && stk.peek().equals(c)) {
                 stk.pop();
             } else {
