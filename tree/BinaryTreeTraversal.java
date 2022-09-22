@@ -186,8 +186,8 @@ public class BinaryTreeTraversal {
         BinaryTreeTraversal it = new BinaryTreeTraversal();
         TreeNode root, left, right;
         root = it.new TreeNode(1);
-        left = it.new TreeNode(12);
-        right = it.new TreeNode(2);
+        left = it.new TreeNode(9);
+        right = it.new TreeNode(20);
 
         root.left = left;
         root.right = right;
@@ -195,18 +195,29 @@ public class BinaryTreeTraversal {
 
         root = root.left;
 
-        left = it.new TreeNode(10);
-        right = it.new TreeNode(14);
+        left = it.new TreeNode(11);
+        right = it.new TreeNode(8);
         root.left = left;
         root.right = right;
+
+        TreeNode tn1 = right;
+        left = it.new TreeNode(4);
+        tn1.left = left;
 
         root = tn.right;
-        left = it.new TreeNode(16);
-        right = it.new TreeNode(27);
+        left = it.new TreeNode(15);
+        right = it.new TreeNode(7);
         root.left = left;
         root.right = right;
 
-        System.out.println(it.pathToNode(tn, 27));
+        tn1 = right;
+        left = it.new TreeNode(18);
+        right = it.new TreeNode(12);
+        tn1.left = left;
+        tn1.right = right;
+
+        ArrayList<Integer> ans = it.postorderTraversal(tn);
+        System.out.println(ans);
 
     }
 
