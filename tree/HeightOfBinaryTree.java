@@ -2,21 +2,7 @@ package tree;
 
 public class HeightOfBinaryTree {
 
-    // Definition for binary tree
-
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-            left = null;
-            right = null;
-        }
-    }
-
-    public int binaryTreeHeight(TreeNode A) {
+    public static int binaryTreeHeight(TreeNode A) {
         if (A == null) {
             return 0;
         }
@@ -27,25 +13,24 @@ public class HeightOfBinaryTree {
     }
 
     public static void main(String[] args) {
-        HeightOfBinaryTree bt = new HeightOfBinaryTree();
         TreeNode root, left, right;
-        root = bt.new TreeNode(1);
-        left = bt.new TreeNode(2);
-        right = bt.new TreeNode(3);
+        root = new TreeNode(1);
+        left = new TreeNode(2);
+        right = new TreeNode(3);
 
         root.left = left;
         root.right = right;
         TreeNode tn = root;
 
         root = root.right;
-        left = bt.new TreeNode(4);
+        left = new TreeNode(4);
         root.left = left;
 
         root = root.left;
-        right = bt.new TreeNode(5);
+        right = new TreeNode(5);
         root.right = right;
 
-        System.out.println(bt.binaryTreeHeight(tn));
+        System.out.println(binaryTreeHeight(tn));
 
     }
 
