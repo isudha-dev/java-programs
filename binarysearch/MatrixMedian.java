@@ -43,11 +43,6 @@ public class MatrixMedian {
         return low;
     }
 
-    public int findMedian(int[][] A) {
-
-        return -1;
-    }
-
     public int lowerBound(List<Integer> a, int target) {
 
         if (target > a.get(a.size() - 1)) {
@@ -67,7 +62,7 @@ public class MatrixMedian {
         return low;
     }
 
-    public double findMedianSortedArraysHelper(final List<Integer> a, final List<Integer> b, int k) {
+    public double findMedian2SortedArrays(final List<Integer> a, final List<Integer> b, int k) {
 
         int low = Math.min(a.get(0), b.get(0));
         int high = Math.max(a.get(a.size() - 1), b.get(b.size() - 1));
