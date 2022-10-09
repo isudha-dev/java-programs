@@ -10,6 +10,7 @@ public class MaxFreqStack {
                 { 2, 0 }, { 2, 0 } };
 
         int[] ans = solve(A);
+        System.out.println(ans);
 
     }
 
