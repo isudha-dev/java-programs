@@ -1,45 +1,33 @@
 package tree;
 
-import java.util.ArrayList;
-
 public class EqualTreePartition {
 
     public int solve(TreeNode A) {
 
-        ArrayList<Integer> postorder = postorderTraversal(A);
-        int sum = 0;
-        for (int i : postorder) {
-            sum += i;
-        }
-        if (sum % 2 != 0) {
-            return 0;
-        }
-        int halfSum = 0;
-
-        for (int i : postorder) {
-            halfSum += i;
-            if (halfSum == sum / 2) {
-                return 1;
-            }
-        }
-
-        return 0;
+        int totSum = findTotalSum(A);
+        boolean possible = isPossible(A, totSum);
+        return possible ? 1 : 0;
     }
 
-    public ArrayList<Integer> postorderTraversal(TreeNode A) {
+    public int findTotalSum(TreeNode A) {
         if (A == null) {
-            return null;
+            return 0;
         }
-        ArrayList<Integer> al = new ArrayList<Integer>();
-        ArrayList<Integer> all = postorderTraversal(A.left);
-        if (all != null)
-            al.addAll(all);
-        ArrayList<Integer> alr = postorderTraversal(A.right);
-        if (alr != null)
-            al.addAll(alr);
-        al.add(A.val);
+        return A.val + findTotalSum(A.right) + findTotalSum(A.left);
+    }
 
-        return al;
+    public boolean isPossible(TreeNode root, int totalSum) {
+        if (root == null) {
+            return false;
+        }
+        int leftSum = findTotalSum(root.left);
+        int rightSum = findTotalSum(root.right);
+        if (leftSum * 2 == totalSum || rightSum * 2 == totalSum) {
+            // possible = 1;
+            return true;
+        } else {
+            return isPossible(root.left, totalSum) || isPossible(root.right, totalSum);
+        }
     }
 
 }
