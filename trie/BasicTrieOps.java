@@ -13,7 +13,7 @@ public class BasicTrieOps {
                 this.child[i] = null;
             }
             this.isEnd = false;
-            this.count = 1;
+            this.count = 0;
         }
     }
 
