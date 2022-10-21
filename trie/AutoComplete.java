@@ -10,20 +10,20 @@ import java.util.Map.Entry;
 public class AutoComplete {
 
     public static void main(String[] args) {
-        // ArrayList<String> dictionary = new ArrayList<>(
-        // Arrays.asList(new String[] { "abcd", "aecd", "abaa", "abef", "acdcc", "acbcc"
-        // }));
-        // ArrayList<Integer> weight = new ArrayList<>(Arrays.asList(new Integer[] { 2,
-        // 1, 3, 4, 6, 5 }));
-        // ArrayList<String> prefixes = new ArrayList<>(Arrays.asList(new String[] {
-        // "ab", "abc", "a", "abd" }));
-
-        // AutoComplete ac = new AutoComplete();
-        // ArrayList<ArrayList<String>> ans = ac.autoComplete(dictionary, weight,
-        // prefixes);
-        // showOutput(ans);
+        ArrayList<String> dictionary = new ArrayList<>(
+                Arrays.asList(new String[] { "abcd", "aecd", "abaa", "abef", "acdcc", "acbcc"
+                }));
+        ArrayList<Integer> weight = new ArrayList<>(Arrays.asList(new Integer[] { 2,
+                1, 3, 4, 6, 5 }));
+        ArrayList<String> prefixes = new ArrayList<>(Arrays.asList(new String[] {
+                "ab", "abc", "a", "abd" }));
 
         AutoComplete ac = new AutoComplete();
+        ArrayList<ArrayList<String>> ans = ac.autoComplete(dictionary, weight,
+                prefixes);
+        // ac.showOutput(ans);
+
+        // AutoComplete ac = new AutoComplete();
         ac.perform();
 
     }
@@ -131,6 +131,9 @@ public class AutoComplete {
 
     boolean searchTrie(TrieNode root, String str) {
         TrieNode temp = root;
+        for (TrieNode child : root.child) {
+
+        }
         for (Character c : str.toCharArray()) {
             if (temp.child[c - 'a'] == null)
                 return false;
