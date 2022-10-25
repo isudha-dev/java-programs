@@ -6,35 +6,33 @@ public class MinNumOfSquares {
 
     public static void main(String[] args) {
         MinNumOfSquares min = new MinNumOfSquares();
-        min.countMinSquares(12);
+        System.out.println(min.countMinSquares(12));
     }
 
     public int countMinSquares(int A) {
-        int sqrt = (int) Math.sqrt(A);
-        int[] arr = getSquareLessThan(A, sqrt);
-        int ans = minSquares(A, arr, arr.length);
+        int arr[] = new int[A + 1];
+        Arrays.fill(arr, -1);
+        int res = countSquares(A, arr);
 
-        return ans;
+        return res;
     }
 
-    int minSquares(int A, int[] arr, int n) {
-        if (A <= 0)
-            return 0;
-        long ans = Integer.MAX_VALUE;
-        for (int i = 0; i < n; i++) {
-            ans = Math.min(ans, 1 + minSquares(A - arr[i], arr, n));
-        }
-        return (int) ans;
-    }
+    int countSquares(int A, int[] dp) {
+        if (A <= 3)
+            return A;
 
-    int[] getSquareLessThan(int A, int sqrt) {
-        int[] ans = new int[sqrt];
-        Arrays.fill(ans, 0);
-        int idx = 0;
+        if (dp[A] != -1)
+            return dp[A];
+
+        int ans = A;
+
         for (int i = 1; i * i <= A; i++) {
-            ans[idx] = i;
-            idx++;
+            int temp = 1 + countSquares(A - i * i, dp);
+            ans = Math.min(ans, temp);
+
         }
+        dp[A] = ans;
+
         return ans;
     }
 }

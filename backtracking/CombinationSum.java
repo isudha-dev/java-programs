@@ -4,19 +4,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
+import java.util.stream.Collectors;
 
 public class CombinationSum {
 
     // TODO ability to select same repeated number from A unlimited number of times.
     public static void main(String[] args) {
         CombinationSum cs = new CombinationSum();
-        cs.combinationSum(new ArrayList<>(Arrays.asList(new Integer[] { 2, 3, 4, 7 })), 7);
+        System.out.println(
+                cs.combinationSum(new ArrayList<>(Arrays.asList(new Integer[] { 1 })), 5));
     }
 
     public ArrayList<ArrayList<Integer>> combinationSum(ArrayList<Integer> A, int B) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         Collections.sort(A);
-        generateSum(0, A, B, new ArrayList<>(), res);
+        A = (ArrayList<Integer>) A.stream().distinct().collect(Collectors.toList());
+
+        generateSum(0, A, B, new ArrayList<>(), res, new HashSet<String>(), new StringBuilder());
 
         Collections.sort(res, new Comparator<ArrayList<Integer>>() {
             @Override
@@ -32,27 +37,34 @@ public class CombinationSum {
         return res;
     }
 
-    void generateSum(int i, ArrayList<Integer> A, int B, ArrayList<Integer> temp, ArrayList<ArrayList<Integer>> res) {
+    void generateSum(int i, ArrayList<Integer> A, int B, ArrayList<Integer> temp, ArrayList<ArrayList<Integer>> res,
+            HashSet<String> hs, StringBuilder sb) {
+        if (B < 0)
+            return;
+
         if (i == A.size()) {
             if (B == 0) {
-                res.add(new ArrayList<>(temp));
-                return;
-            } else {
+                if (!hs.contains(sb.toString()))
+                    res.add(new ArrayList<>(temp));
                 return;
             }
+            return;
         }
         if (B == 0) {
-            res.add(new ArrayList<>(temp));
+            if (!hs.contains(sb.toString()))
+                res.add(new ArrayList<>(temp));
             return;
         }
 
-        // choose i
-        temp.add(A.get(i));
-        generateSum(i + 1, A, B - A.get(i), temp, res);
-        temp.remove(temp.size() - 1);
+        // for loop
+        for (int k = i; k < A.size(); k++) {
+            int currElem = A.get(k);
 
-        // dont choose i
-        generateSum(i + 1, A, B, temp, res);
+            temp.add(currElem);
+            sb.append(currElem);
+            generateSum(k, A, B - currElem, temp, res, hs, sb);
+            temp.remove(temp.size() - 1);
+            sb.deleteCharAt(sb.length() - 1);
+        }
     }
-
 }
