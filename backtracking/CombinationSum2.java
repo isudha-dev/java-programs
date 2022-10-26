@@ -5,21 +5,19 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
-import java.util.stream.Collectors;
 
-public class CombinationSum {
+public class CombinationSum2 {
 
     public static void main(String[] args) {
-        CombinationSum cs = new CombinationSum();
+        CombinationSum2 cs = new CombinationSum2();
         System.out.println(
-                cs.combinationSum(new ArrayList<>(Arrays.asList(new Integer[] { 1 })), 5));
+                cs.combinationSum(
+                        new ArrayList<>(Arrays.asList(new Integer[] { 15, 8, 15, 10, 19, 18, 10, 3, 11, 7, 17 })), 33));
     }
 
     public ArrayList<ArrayList<Integer>> combinationSum(ArrayList<Integer> A, int B) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         Collections.sort(A);
-        A = (ArrayList<Integer>) A.stream().distinct().collect(Collectors.toList());
-
         generateSum(0, A, B, new ArrayList<>(), res, new HashSet<String>(), new StringBuilder());
 
         Collections.sort(res, new Comparator<ArrayList<Integer>>() {
@@ -43,27 +41,31 @@ public class CombinationSum {
 
         if (i == A.size()) {
             if (B == 0) {
-                if (!hs.contains(sb.toString()))
+                if (!hs.contains(sb.toString())) {
+                    hs.add(sb.toString());
                     res.add(new ArrayList<>(temp));
+                }
                 return;
             }
             return;
         }
         if (B == 0) {
-            if (!hs.contains(sb.toString()))
+            if (!hs.contains(sb.toString())) {
+                hs.add(sb.toString());
                 res.add(new ArrayList<>(temp));
+            }
             return;
         }
 
-        // for loop
-        for (int k = i; k < A.size(); k++) {
-            int currElem = A.get(k);
+        // choose i
+        temp.add(A.get(i));
+        String s = "" + A.get(i);
+        sb.append(A.get(i));
+        generateSum(i + 1, A, B - A.get(i), temp, res, hs, sb);
+        temp.remove(temp.size() - 1);
+        sb.delete(sb.length() - s.length(), sb.length());
 
-            temp.add(currElem);
-            sb.append(currElem);
-            generateSum(k, A, B - currElem, temp, res, hs, sb);
-            temp.remove(temp.size() - 1);
-            sb.deleteCharAt(sb.length() - 1);
-        }
+        // dont choose i
+        generateSum(i + 1, A, B, temp, res, hs, sb);
     }
 }
