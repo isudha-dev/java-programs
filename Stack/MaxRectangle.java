@@ -5,8 +5,9 @@ import java.util.Stack;
 public class MaxRectangle {
 
     public static void main(String[] args) {
-        int[][] A = new int[][] { { 0, 1, 1 }, { 1, 0, 0 }, { 1, 0, 0 }, { 1, 0, 0 }, { 1, 0, 0 }, { 1, 1, 1 },
-                { 0, 1, 0 } };
+        int[][] A = new int[][] { { 0, 1, 1, 1, 1 }, { 1, 1, 0, 1, 1 }, { 1, 1, 0, 1, 1 }, { 1, 1, 0, 1, 1 } };
+        // { 0, 1, 1 }, { 1, 0, 0 }, { 1, 0, 0 }, { 1, 0, 0 }, { 1, 0, 0 }, { 1, 1, 1 },
+        // { 0, 1, 0 }
         System.out.println(solve(A));
 
     }
@@ -37,7 +38,10 @@ public class MaxRectangle {
     public static int largestRectangleAreaBF(int[] A) {
         int n = A.length;
         int ans = 0;
+        int[] temp = new int[n];
         for (int i = 0; i < n; i++) {
+            if (A[i] == 0)
+                continue;
             int l = i - 1;
             while (l >= 0 && A[l] >= A[i]) {
                 l--;
@@ -47,6 +51,7 @@ public class MaxRectangle {
                 r++;
             }
             ans = Math.max(ans, A[i] * (r - l - 1));
+            temp[i] = A[i] * (r - l - 1);
         }
 
         return ans;

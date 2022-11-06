@@ -4,7 +4,7 @@ public class MinSumPathInMatrix {
 
     public static void main(String[] args) {
         MinSumPathInMatrix ms = new MinSumPathInMatrix();
-        ms.minPathSum(new int[][] { { 0 } });
+        ms.minPathSum(new int[][] { { -2, -3, 3 }, { -5, -10, 1 }, { 10, 30, -5 } });
     }
 
     public int minPathSum(int[][] A) {
