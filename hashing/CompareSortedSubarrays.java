@@ -83,7 +83,6 @@ public class CompareSortedSubarrays {
     }
 
     public static long getPrefixSumRange(long[] prefixSum, int start, int end) {
-        int n = prefixSum.length;
         if (start == 0) {
             return prefixSum[end];
         } else {

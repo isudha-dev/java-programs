@@ -49,7 +49,7 @@ public class ZigZagLevelOrderTraversal {
     public static void main(String[] args) {
         TreeNode root = DeserializeBinaryTree
                 .deserializeBT(new int[] { 1, 2, 3, 4, 5, 11, 6, -1, 7, -1, -1, -1, -1, -1, -1, 8, 9, -1, -1, -1, -1 });
-        ArrayList<ArrayList<Integer>> ans = zigzagLevelOrder(root);
+        zigzagLevelOrder(root);
     }
 
 }

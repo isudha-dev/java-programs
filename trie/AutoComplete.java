@@ -19,9 +19,7 @@ public class AutoComplete {
                 "ab", "abc", "a", "abd" }));
 
         AutoComplete ac = new AutoComplete();
-        ArrayList<ArrayList<String>> ans = ac.autoComplete(dictionary, weight,
-                prefixes);
-        // ac.showOutput(ans);
+        ac.autoComplete(dictionary, weight, prefixes);
 
         // AutoComplete ac = new AutoComplete();
         ac.perform();
@@ -131,9 +129,9 @@ public class AutoComplete {
 
     boolean searchTrie(TrieNode root, String str) {
         TrieNode temp = root;
-        for (TrieNode child : root.child) {
+        // for (TrieNode child : root.child) {
 
-        }
+        // }
         for (Character c : str.toCharArray()) {
             if (temp.child[c - 'a'] == null)
                 return false;

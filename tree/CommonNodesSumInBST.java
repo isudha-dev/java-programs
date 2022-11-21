@@ -46,7 +46,7 @@ public class CommonNodesSumInBST {
     public static void main(String[] args) {
         TreeNode A = DeserializeBinaryTree.deserializeBT(new int[] { 5, 2, 8, -1, 3, -1, 15, -1, -1, 9, -1, -1, -1 });
         TreeNode B = DeserializeBinaryTree.deserializeBT(new int[] { 7, 1, 10, -1, 2, -1, 15, -1, -1, 11, -1, -1, -1 });
-        System.out.println(solve(B, B));
+        System.out.println(solve(A, B));
     }
 
 }

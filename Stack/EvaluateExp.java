@@ -17,13 +17,13 @@ public class EvaluateExp {
         Stack<String> op1 = new Stack<>();
         Stack<String> op2 = new Stack<>();
         Stack<String> ops = new Stack<>();
-        Stack<String> ans = new Stack<>();
 
         for (int i = 0; i < A.size(); i++) {
             String s = A.get(i);
             if (s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/")) {
                 // ops.add(s);
-                int o1 = op1.isEmpty() ? Integer.parseInt(ans.pop()) : Integer.parseInt(op1.pop());
+                // int o1 = op1.isEmpty() ? Integer.parseInt(ans.pop()) :
+                // Integer.parseInt(op1.pop());
 
                 continue;
             }

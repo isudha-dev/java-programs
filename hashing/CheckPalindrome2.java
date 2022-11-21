@@ -16,12 +16,12 @@ public class CheckPalindrome2 {
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
-        int count2 = 0, count1 = 0;
+        int count1 = 0;// count2 = 0;
 
         for (Entry<Character, Integer> entry : map.entrySet()) {
             int count = entry.getValue();
             if ((count & 1) != 1) {
-                count2++;
+                // count2++;
             } else {
                 count1++;
             }

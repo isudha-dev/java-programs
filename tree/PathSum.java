@@ -49,8 +49,8 @@ public class PathSum {
     }
 
     public static void main(String[] args) {
-        TreeNode root = DeserializeBinaryTree
-                .deserializeBT(new int[] { 5, 4, 8, -11, -1, -13, 4, -1, -1, -1, -1, -1, -1 });
+        // TreeNode root = DeserializeBinaryTree.deserializeBT(new int[] { 5, 4, 8, -11,
+        // -1, -13, 4, -1, -1, -1, -1, -1, -1});
 
         // hasPathSum(root, -1);
     }
