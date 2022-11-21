@@ -33,6 +33,7 @@ public class RottenOranges {
         int[] row = { 0, -1, 0, 1 };
         int[] col = { -1, 0, 1, 0 };
 
+        int maxTime = Integer.MIN_VALUE;
         while (!q.isEmpty()) {
             Pair top = q.poll();
             int val = timeMatrix[top.r][top.c];
@@ -40,28 +41,40 @@ public class RottenOranges {
                 int rN = top.r + row[i];
                 int cN = top.c + col[i];
 
-                if (rN >= 0 && rN < n && cN >= 0 && cN < m && A[rN][cN] != 0) {
-                    if (timeMatrix[rN][cN] == Integer.MAX_VALUE || timeMatrix[rN][cN] > val + 1) {
-                        timeMatrix[rN][cN] = val + 1;
-                        Pair newItem = new Pair(rN, cN);
-                        q.add(newItem);
-                    }
+                if (rN >= 0 && rN < n && cN >= 0 && cN < m && A[rN][cN] == 1) {
+                    // if (timeMatrix[rN][cN] == Integer.MAX_VALUE || timeMatrix[rN][cN] > val + 1)
+                    // {
+                    A[rN][cN] = 2;
+                    timeMatrix[rN][cN] = val + 1;
+                    maxTime = Math.max(maxTime, timeMatrix[rN][cN]);
+                    Pair newItem = new Pair(rN, cN);
+                    q.add(newItem);
+                    // }
                 }
             }
         }
 
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (A[i][j] == 1) {
-                    max = Math.max(max, timeMatrix[i][j]);
-                }
+        // int max = Integer.MIN_VALUE;
+        // for (int i = 0; i < n; i++) {
+        // for (int j = 0; j < m; j++) {
+        // if (A[i][j] == 1) {
+        // max = Math.max(max, timeMatrix[i][j]);
+        // }
+        // }
+        // }
+
+        // if (max == Integer.MAX_VALUE)
+        // return -1;
+        // else
+        // return max;
+
+        for (int arr[] : A) {
+            for (int num : arr) {
+                if (num == 1)
+                    return -1;
             }
         }
-        if (max == Integer.MAX_VALUE)
-            return -1;
-        else
-            return max;
+        return maxTime;
 
     }
 
