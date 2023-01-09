@@ -17,7 +17,6 @@ public class WindowString {
 
         int[] bFreq = new int[58];
         for (Character c : B.toCharArray()) {
-
             int idx = c - 'A';
             if (idx >= 0 && idx <= 57)
                 bFreq[idx]++;
@@ -72,10 +71,11 @@ public class WindowString {
             Character c = A.charAt(tail);
             if (bFreq.containsKey(c)) {
                 bFreq.put(c, bFreq.getOrDefault(c, 0) - 1);
-                total++;
+                if (bFreq.get(c) >= 0)
+                    total++;
             }
 
-            if (total == 0) {
+            while (total == 0) {
                 head++;
             }
 

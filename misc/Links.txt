@@ -1,0 +1,6 @@
+https://medium.com/coding-blocks/templates-in-c-vs-generics-in-java-3f820e633821
+
+https://www.baeldung.com/java-type-erasure
+
+https://github.com/scaleracademy/Language-Module-Dec2022/tree/main/java
+
