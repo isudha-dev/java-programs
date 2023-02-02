@@ -51,7 +51,7 @@ public class EquilibriumIndexOfArray {
         }
         Collections.reverse(psR);
 
-        // TODO: failing for edge cases of i = 0 and i = n-1
+        // failing for edge cases of i = 0 and i = n-1
         for (int i = 0; i < n; i++) {
 
             if ((psL.get(i).intValue() == psR.get(i).intValue())

@@ -12,6 +12,7 @@ public class Power {
         }
         if (B == 0)
             return 1 % C;
+
         long half_pow = pow(A, B / 2, C);
         long res = ((half_pow % C) * (half_pow % C)) % C;
         if (B % 2 == 0) {

@@ -17,7 +17,7 @@ public class Array2DRotation270 {
 
         int[][] B = new int[A[0].length][A.length];
 
-        // row col change
+        // row col change - transpose
         for (int r = 0; r < A.length; r++) {
             for (int c = 0; c < A[0].length; c++) {
                 B[c][r] = A[r][c];

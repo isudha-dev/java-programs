@@ -1,33 +1,35 @@
 package practise1;
 
-import practise.AClass;
+public class CClass {
 
-public class CClass extends AClass {
+    static boolean isPowerOf2(int n) {
+        if (n == 0)
+            return false;
 
-    void method1() {
-
-        AClass a = new AClass();
-        a.pubInt = 15;
-        a.proInt = 17;
-        // a.defInt = 20;
-
-        AClass.pubStInt = 25;
-        AClass.proStInt = 27;
-        // AClass.defStInt = 30;
-
-        System.out.println("Public " + a.pubInt);
-        System.out.println("Protected " + a.proInt);
-        // System.out.println("Default " + a.defInt);
-
-        System.out.println("Public static " + AClass.pubStInt);
-        System.out.println("Protected static " + AClass.proStInt);
-        // System.out.println("Default static " + AClass.defStInt);
-
+        while (n != 1) {
+            if (n % 2 != 0)
+                return false;
+            n = n / 2;
+        }
+        return true;
     }
 
-    public static void main(String[] args) {
-        CClass c = new CClass();
-        c.method1();
+    // counting all subsequences whose
+    // product is power of 2.
+    static int countSubsequence(int a[], int size) {
+        int count = 0;
+        for (int i = 0; i < size; i++)
+            if (isPowerOf2(a[i]))
+                count++;
+        return (int) (Math.pow(2, count)) - 1;
+    }
+
+    // Driver
+    public static void main(String args[]) {
+        int a[] = { 1, 2, 3, 8, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17 };
+        System.out.println(countSubsequence(a, a.length));
+        int b[] = { 3, 5, 9 };
+        System.out.println(countSubsequence(b, b.length));
     }
 
 }
