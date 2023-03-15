@@ -1,0 +1,35 @@
+v0
+    Bird class with
+        Properties: name, noOfLegs, color
+        Methods: fly(), dance(), makeSound()
+
+    3 birds - sparrow, crow, pigeon
+
+    v0.1
+        use if else for methods based on name of bird. after checking have code for actual action eg. flying
+        This violates SRP, because fly() method is responsible for checking name of the bird and also executing fly steps
+
+    v0.2
+        Implement bird specific fly methods separately and call them after checking name of the bird. This follow SRP
+        This violates OCP, cant extend this if a new type of bird is added eg.peocock
+
+
+v1: Create child classes of Bird class and make Bird class abstract.
+    Solves OCP probelms.
+
+    New requirement:
+    Add new bird which does not fly.
+
+
+v2: Create interfaces for each of birds behavior.
+    Follows LSP, ISP
+
+
+
+
+S - Single responsibility priciple
+O - Open close priciple
+L - Liskov substitution priciple
+I - Interface segregation priciple
+D - Dependency inversion principle
+

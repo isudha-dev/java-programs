@@ -48,4 +48,35 @@ public class ChrismasTree {
             return cost;
     }
 
+    // #better
+    public static int solve1(int[] A, int[] B) {
+        int minCost = Integer.MAX_VALUE;
+
+        for (int i = 1; i < A.length - 1; i++) {
+            int ls = Integer.MAX_VALUE;
+            int rs = Integer.MAX_VALUE;
+
+            for (int j = i - 1; j >= 0; j--) {
+                if (A[j] < A[i]) {
+                    ls = Math.min(ls, B[j]);
+                }
+            }
+
+            for (int k = i + 1; k < A.length; k++) {
+                if (A[k] > A[i]) {
+                    rs = Math.min(rs, B[k]);
+                }
+            }
+
+            if (ls == Integer.MAX_VALUE || rs == Integer.MAX_VALUE) {
+                continue;
+            }
+            int newCost = B[i] + ls + rs;
+            minCost = Math.min(newCost, minCost);
+
+        }
+
+        return minCost == Integer.MAX_VALUE ? -1 : minCost;
+    }
+
 }
