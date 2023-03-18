@@ -25,6 +25,10 @@ v2: Create interfaces for each of birds behavior.
     Follows LSP, ISP
 
 
+v3: New requirement: 1) Crow and pigeon have same flying behaviour
+                     2) Sparrow and peocock have same flying behavior
+
+
 
 
 S - Single responsibility priciple
