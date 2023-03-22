@@ -1,4 +1,4 @@
-package lld.designpatterns.prototype;
+package lld.designpatterns.prototyperegistry;
 
 public class Client {
 
