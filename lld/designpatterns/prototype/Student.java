@@ -63,7 +63,20 @@ public class Student implements Prototype<Student>{
     this.avgBatchPsp = s.avgBatchPsp;
   }
 
-  @Override public Student clone() {
+  @Override
+  public Student clone() {
     return new Student(this);
+  }
+
+  @Override public String toString() {
+    return "Student{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", age=" + age +
+        ", instructorName='" + instructorName + '\'' +
+        ", batchName='" + batchName + '\'' +
+        ", yearOfEnrollment=" + yearOfEnrollment +
+        ", avgBatchPsp=" + avgBatchPsp +
+        '}';
   }
 }

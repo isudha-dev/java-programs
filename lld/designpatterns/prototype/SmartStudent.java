@@ -13,8 +13,9 @@ public class SmartStudent extends Student{
     this.iq = s.iq;
   }
 
-  public SmartStudent clone(SmartStudent s){
-    return new SmartStudent(s);
+  public
+  SmartStudent clone(){
+    return new SmartStudent(this);
   }
 
   public int getIq() {
@@ -23,5 +24,11 @@ public class SmartStudent extends Student{
 
   public void setIq(final int iq) {
     this.iq = iq;
+  }
+
+  @Override public String toString() {
+    return super.toString() + " SmartStudent{" +
+        "iq=" + iq +
+        '}';
   }
 }

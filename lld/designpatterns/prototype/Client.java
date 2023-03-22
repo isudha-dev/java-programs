@@ -23,12 +23,12 @@ public class Client {
     aprBatchSmart.setAvgBatchPsp(96);
     aprBatchSmart.setIq(160);
 
-    Student s2 = aprBatchSmart.clone();
+    SmartStudent s2 = aprBatchSmart.clone();
     s2.setId(2);
     s2.setName("Tushar");
     s1.setAge(25);
 
-    System.out.println("Student s1: "+s2);
+    System.out.println("Student s2: "+s2);
 
   }
 
