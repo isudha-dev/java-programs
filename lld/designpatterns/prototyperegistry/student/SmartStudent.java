@@ -1,4 +1,4 @@
-package lld.designpatterns.prototyperegistry;
+package lld.designpatterns.prototyperegistry.student;
 
 public class SmartStudent extends Student{
 

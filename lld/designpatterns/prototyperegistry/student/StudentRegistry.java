@@ -1,4 +1,4 @@
-package lld.designpatterns.prototyperegistry;
+package lld.designpatterns.prototyperegistry.student;
 
 import java.util.HashMap;
 import java.util.Map;
