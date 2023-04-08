@@ -7,9 +7,11 @@ public class Amazon {
 
     private static Amazon instance;
     private List<OrderPlaceSubscriber> orderPlaceSubscribers;
+    private List<OrderCancelSubscriber> orderCancelSubscribers;
 
     private Amazon(){
         orderPlaceSubscribers = new ArrayList<>();
+        orderCancelSubscribers = new ArrayList<>();
     }
 
     public static Amazon getInstance(){
@@ -19,17 +21,31 @@ public class Amazon {
         return instance;
     }
 
-    public void registerSubscriber(OrderPlaceSubscriber ops){
+    public void registerOrderPlaceSubscriber(OrderPlaceSubscriber ops){
         orderPlaceSubscribers.add(ops);
     }
 
-    public void deregisterSubscriber(OrderPlaceSubscriber ops){
+    public void deregisterOrderPlaceSubscriber(OrderPlaceSubscriber ops){
         orderPlaceSubscribers.remove(ops);
+    }
+
+    public void registerOrderCancelSubscriber(OrderCancelSubscriber ocs){
+        orderCancelSubscribers.add(ocs);
+    }
+
+    public void deregisterOrderCancelSubscriber(OrderCancelSubscriber ocs){
+        orderCancelSubscribers.remove(ocs);
     }
 
     public void orderPlaced(){
         for(OrderPlaceSubscriber ops : orderPlaceSubscribers){
             ops.orderPlacedEvent();
+        }
+    }
+
+    public void orderCancelled(){
+        for(OrderCancelSubscriber ocs : orderCancelSubscribers){
+            ocs.orderCancelEvent();
         }
     }
 

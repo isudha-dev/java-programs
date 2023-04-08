@@ -9,8 +9,13 @@ public class Client {
         InvoiceGenerator ig = new InvoiceGenerator();
         a.orderPlaced();
         System.out.println();
-        a.deregisterSubscriber(ig);
+        a.deregisterOrderPlaceSubscriber(ig);
         a.orderPlaced();
+        System.out.println();
+        a.orderCancelled();
+        System.out.println();
+        a.deregisterOrderCancelSubscriber(wmn);
+        a.orderCancelled();
     }
 
 }
