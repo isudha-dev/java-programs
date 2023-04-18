@@ -1,8 +1,8 @@
-package addersubtractoratomic;
+package os.addersubtractoratomic;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Count {
+public class  Count {
     AtomicInteger val = new AtomicInteger(0);
 
 }

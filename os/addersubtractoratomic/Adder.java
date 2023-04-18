@@ -1,4 +1,4 @@
-package addersubtractoratomic;
+package os.addersubtractoratomic;
 
 public class Adder implements Runnable {
     Count count;
