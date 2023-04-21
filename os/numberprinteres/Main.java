@@ -1,4 +1,4 @@
-package numberprinteres;
+package os.numberprinteres;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -1,4 +1,4 @@
-package numberprinteres;
+package os.numberprinteres;
 
 public class NumberPrinter implements Runnable {
     private int numToPrint;

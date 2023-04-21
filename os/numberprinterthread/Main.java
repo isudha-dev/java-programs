@@ -1,4 +1,4 @@
-package numberprinterthread;
+package os.numberprinterthread;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package numberprinterthread;
+package os.numberprinterthread;
 
 public class NumberPrinter implements Runnable {
     private int numToPrint;
