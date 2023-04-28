@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 public class NextGreaterNum {
 
     public static void main(String[] args) {
-        System.out.println(nextGreaterElement(1999999999));
+        System.out.println(nextGreaterElement(75182));// 1999999999
     }
 
     public static int nextGreaterElement(int n) {
