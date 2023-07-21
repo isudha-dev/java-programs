@@ -44,7 +44,7 @@ public class Birds {
     }
 
     // Issue:
-    // This violates OCP, cant extend this if a new type of bird is added eg.peocock
+    // This violates OCP, cant extend this if a new type of bird is added e.g.peacock
 
     // Solution v1:
     // Create child classes of Bird class and make Bird class abstract.

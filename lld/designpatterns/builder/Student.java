@@ -59,10 +59,17 @@ public class Student {
         }
 
         public void validate() {
-
+            if(name == null){
+                throw new RuntimeException("Name is null");
+            } else if (yoe < 1) {
+                throw new RuntimeException("Year of experience is less than 1");
+            } else if (gradYear < 2023) {
+                throw new RuntimeException("Grad year should be 2022 or earlier");
+            }
         }
 
         public Student build() {
+            this.validate();
             Student s = new Student(this);
             return s;
         }

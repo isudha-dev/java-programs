@@ -13,7 +13,6 @@ public class Crow extends Birds implements Flyable, Soundable {
     }
 
     public void crowMethod() {
-
         // crow specific method
     }
 

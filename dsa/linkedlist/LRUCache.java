@@ -41,7 +41,6 @@ public class LRUCache {
             return node.val;
         } else
             return -1;
-
     }
 
     public void set(int key, int value) {

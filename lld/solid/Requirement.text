@@ -6,16 +6,16 @@ v0
     3 birds - sparrow, crow, pigeon
 
     v0.1
-        use if else for methods based on name of bird. after checking have code for actual action eg. flying
+        use if else for methods based on name of bird. after checking, have code for actual action eg. flying
         This violates SRP, because fly() method is responsible for checking name of the bird and also executing fly steps
 
     v0.2
         Implement bird specific fly methods separately and call them after checking name of the bird. This follow SRP
-        This violates OCP, cant extend this if a new type of bird is added eg.peocock
+        This violates OCP, cant extend this if a new type of bird is added eg.peacock
 
 
 v1: Create child classes of Bird class and make Bird class abstract.
-    Solves OCP probelms.
+    Solves OCP problems.
 
     New requirement:
     Add new bird which does not fly.
@@ -31,9 +31,9 @@ v3: New requirement: 1) Crow and pigeon have same flying behaviour
 
 
 
-S - Single responsibility priciple
-O - Open close priciple
-L - Liskov substitution priciple
-I - Interface segregation priciple
+S - Single responsibility principle
+O - Open close principle
+L - Liskov substitution principle
+I - Interface segregation principle
 D - Dependency inversion principle
 

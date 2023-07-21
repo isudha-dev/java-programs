@@ -1,6 +1,7 @@
 package lld.designpatterns.prototyperegistry.student;
 
-public class Student implements Prototype<Student>{
+public class
+Student implements Prototype<Student>{
   private int id;
   private String name;
   private int age;

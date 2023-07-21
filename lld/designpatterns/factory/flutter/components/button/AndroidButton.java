@@ -6,4 +6,7 @@ public class AndroidButton implements Button{
         System.out.println("Android button created");
     }
 
+    @Override public void clickButton() {
+        System.out.println("Android button clicked");
+    }
 }

@@ -7,7 +7,7 @@ public class Client {
                 .setName("Sudha")
                 .setAge(32)
                 .setGradyear(2010)
-                .setYoe(12)
+                .setYoe(0)
                 .build();
 
         s.print();
