@@ -102,7 +102,7 @@ public class Temp {
         return prev;
     }
 
-    public ListNode reverseList(ListNode head){
+    public static ListNode reverseList(ListNode head){
         if(head == null || head.next == null){
             return head;
         }
@@ -163,21 +163,96 @@ public class Temp {
         return A;
     }
 
+    public ListNode detectCycle(ListNode a) {
+        HashSet<ListNode> set = new HashSet<>();
+
+        ListNode temp = a;
+        while (temp!=null){
+            if(set.contains(temp)){
+                return temp;
+            } else {
+                set.add(temp);
+            }
+            temp = temp.next;
+        }
+        return null;
+    }
+
+    public ListNode removeLoopFromLl(ListNode A) {
+        ListNode slow = A, fast = A;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast)
+                break;
+        }
+        if (slow != fast) {
+            return A;
+        } else {
+            if (slow == A) {
+                while (slow.next != A)
+                    slow = slow.next;
+            } else {
+                fast = A;
+                while (slow.next != fast.next) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+            }
+            slow.next = null;
+        }
+
+        return A;
+    }
+
+    public static ListNode reorderList(ListNode A) {
+        ListNode slow = A;
+        ListNode fast = A;
+
+        ListNode prev = null;
+        while (fast.next!=null && fast.next.next!=null){
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        prev.next = null;
+
+        //reverse list
+        ListNode A2 = reverseList(slow);
+        ListNode A1 = A;
+        ListNode temp = null;
+        while (A1 != null && A2 != null){
+            temp = A1.next;
+            A1.next = A2;
+            A1.next.next = temp;
+            A2 = A2.next;
+            A1 = temp;
+        }
+
+        return A;
+    }
+
     public static void main(String[] args) {
-        ListNode head = new ListNode(6);
+        ListNode head = new ListNode(1);
         ListNode temp = head;
-        temp.next = new ListNode(10);
+        temp.next = new ListNode(3);
+        temp = temp.next;
+        temp.next = new ListNode(5);
+        temp = temp.next;
+        temp.next = new ListNode(7);
         temp = temp.next;
         temp.next = new ListNode(6);
         temp = temp.next;
-        temp.next = new ListNode(3);
+        temp.next = new ListNode(4);
         temp = temp.next;
-        temp.next = new ListNode(3);
+        temp.next = new ListNode(9);
         temp = temp.next;
-        temp.next = new ListNode(8);
+        temp.next = new ListNode(2);
         temp = temp.next;
 
-        deleteDuplicates(head);
+
+        reorderList(head);
 
     }
 
