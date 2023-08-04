@@ -1,4 +1,4 @@
-package dsa.practise.jul;
+package dsa.practise;
 
 // https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/
 public class MinDeleteSumOf2Strings {

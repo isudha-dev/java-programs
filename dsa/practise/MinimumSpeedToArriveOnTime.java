@@ -1,4 +1,4 @@
-package dsa.practise.jul;
+package dsa.practise;
 
 public class MinimumSpeedToArriveOnTime {
 

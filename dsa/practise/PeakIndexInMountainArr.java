@@ -1,4 +1,4 @@
-package dsa.practise.jul;
+package dsa.practise;
 
 //https://leetcode.com/problems/peak-index-in-a-mountain-array/submissions/
 public class PeakIndexInMountainArr {

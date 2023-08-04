@@ -1,4 +1,4 @@
-package dsa.practise.jul;
+package dsa.practise;
 
 import java.util.Arrays;
 import java.util.Collections;

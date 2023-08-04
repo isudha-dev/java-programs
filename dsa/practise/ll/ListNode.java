@@ -1,4 +1,4 @@
-package dsa.practise.jul.ll;
+package dsa.practise.ll;
 
 public class ListNode {
     public int val;
