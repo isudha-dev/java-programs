@@ -1,9 +1,10 @@
-package oop.inheritance.pck1;
+package oop.inheritance.pck2;
 
-public class Student extends User{
+import oop.inheritance.pck1.User;
+
+public class Student extends User {
 
     private int sage;
-    protected Address saddress;
     protected String sFullAddress;
     String sdesignation;
     public String sname;
@@ -18,7 +19,7 @@ public class Student extends User{
     void displayUser(){
 //        System.out.println(age); private access in parent
         System.out.println(fullAddress);
-        System.out.println(designation);
+//        System.out.println(designation); not public in User
         System.out.println(name);
     }
 
@@ -40,7 +41,7 @@ public class Student extends User{
     }
 
     void displayDesignation(){
-        super.displayDesignation();
+//        super.displayDesignation(); not public
         System.out.println(sdesignation);
     }
 

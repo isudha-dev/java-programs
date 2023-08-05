@@ -1,4 +1,4 @@
-package dsa.concepts;
+package oop.anonclass;
 
 public class HelloWorldAnonymousClasses {
 
