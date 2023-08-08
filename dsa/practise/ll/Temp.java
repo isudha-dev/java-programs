@@ -369,6 +369,24 @@ public class Temp {
         return len;
     }
 
+    ListNode2 flatten(ListNode2 root) {
+
+        ListNode2 prev = null;
+        ListNode2 curr = root;
+        ListNode2 next = null;
+
+        while (curr!=null){
+            if(curr.right.val < curr.down.val){
+                prev = curr;
+
+            }
+
+        }
+
+
+        return root;
+    }
+
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         ListNode temp = head;
