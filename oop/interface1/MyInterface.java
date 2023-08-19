@@ -13,6 +13,8 @@ public interface MyInterface {
         System.out.println("This is static method");
     }
 
-    void abstractMethod();
+    int abstractMethod2();
+
+    void abstractMethod1();
 
 }

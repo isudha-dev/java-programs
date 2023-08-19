@@ -7,9 +7,13 @@ public class ImplementingClass1 implements MyInterface{
         MyInterface.super.defaultMethod();
         System.out.println("Child default method");
     }
+    @Override public int abstractMethod2() {
+        System.out.println("Child default method");
+        return 0;
+    }
 
     @Override
-    public void abstractMethod() {
+    public void abstractMethod1() {
         System.out.println("Child abstract method");
     }
 

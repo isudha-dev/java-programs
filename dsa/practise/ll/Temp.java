@@ -387,26 +387,74 @@ public class Temp {
         return root;
     }
 
+    public static ListNode partition(ListNode head, int x) {
+        if(head == null){
+            return null;
+        }
+        if(head.next == null){
+            return head;
+        }
+        ListNode smaller = null;
+        ListNode larger = null;
+
+        ListNode temp = head;
+        ListNode smallerHead = null;
+        ListNode largerHead = null;
+        while (temp!=null){
+            if(temp.val < x){
+                if(smaller == null){
+                    smaller = new ListNode(temp.val);
+                    smallerHead = smaller;
+                } else {
+                    ListNode temp1 = new ListNode(temp.val);
+                    smaller.next = temp1;
+                    smaller = smaller.next;
+                }
+
+            } else {
+                if(larger == null){
+                    larger = new ListNode(temp.val);
+                    largerHead = larger;
+                } else {
+                    ListNode temp2 = new ListNode(temp.val);
+                    larger.next = temp2;
+                    larger = larger.next;
+                }
+            }
+            temp = temp.next;
+        }
+
+        if(smallerHead != null && largerHead != null){
+            smaller.next = largerHead;
+            return smallerHead;
+        } else if(largerHead != null) {
+            return largerHead;
+        } else {
+            return smallerHead;
+        }
+
+
+    }
+
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         ListNode temp = head;
-        temp.next = new ListNode(3);
-        temp = temp.next;
-        temp.next = new ListNode(5);
-        temp = temp.next;
-        temp.next = new ListNode(7);
-        temp = temp.next;
-        temp.next = new ListNode(6);
-        temp = temp.next;
-        temp.next = new ListNode(4);
-        temp = temp.next;
-        temp.next = new ListNode(9);
-        temp = temp.next;
-        temp.next = new ListNode(2);
-        temp = temp.next;
+        temp.next = new ListNode(1);
+//        temp = temp.next;
+//        temp.next = new ListNode(3);
+//        temp = temp.next;
+//        temp.next = new ListNode(2);
+//        temp = temp.next;
+//        temp.next = new ListNode(5);
+//        temp = temp.next;
+//        temp.next = new ListNode(2);
+//        temp = temp.next;
+//        temp.next = new ListNode(9);
+//        temp = temp.next;
+//        temp.next = new ListNode(2);
 
 
-        reorderList(head);
+        partition(head, 2);
 
     }
 
