@@ -1,5 +1,6 @@
 package dsa.practise.ll;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Temp {
@@ -440,22 +441,27 @@ public class Temp {
         ListNode head = new ListNode(1);
         ListNode temp = head;
         temp.next = new ListNode(1);
-//        temp = temp.next;
-//        temp.next = new ListNode(3);
-//        temp = temp.next;
-//        temp.next = new ListNode(2);
-//        temp = temp.next;
-//        temp.next = new ListNode(5);
-//        temp = temp.next;
-//        temp.next = new ListNode(2);
-//        temp = temp.next;
-//        temp.next = new ListNode(9);
-//        temp = temp.next;
-//        temp.next = new ListNode(2);
-
+        //        temp = temp.next;
+        //        temp.next = new ListNode(3);
+        //        temp = temp.next;
+        //        temp.next = new ListNode(2);
+        //        temp = temp.next;
+        //        temp.next = new ListNode(5);
+        //        temp = temp.next;
+        //        temp.next = new ListNode(2);
+        //        temp = temp.next;
+        //        temp.next = new ListNode(9);
+        //        temp = temp.next;
+        //        temp.next = new ListNode(2);
 
         partition(head, 2);
 
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(5, map.getOrDefault(5, 1) + 1);
+        int[][] ans = new int[0][];
+        System.out.println(ans);
     }
+
+
 
 }

@@ -38,7 +38,7 @@ public class ThreeSum {
 
     // -10 -9 -8 -7 -6 -5 -4 -3 -2 0 1 2 3 4 5 6 7 8 9 10
     public static void main(String[] args) {
-        Integer[] arr = new Integer[] { -10, -9, -8, -7, -6, -5, -4, -3, -2, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        Integer[] arr = new Integer[] {1, -4, 0,0,5,-5,1,0,-2,4,-4,1,-1,-4,3,4,-1,-1,-3};
 
         System.out.println(threeSumClosest(new ArrayList<Integer>(Arrays.asList(arr)), -1));
     }
