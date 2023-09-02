@@ -3,7 +3,7 @@ package dsa.subsequence_subsets;
 public class LexicographicSubseq {
 
     public static void main(String[] args) {
-        System.out.println(solve("ksdjgha"));
+        System.out.println(solve("baca"));
     }
 
     static String solve(String A) {
