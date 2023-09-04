@@ -2,9 +2,11 @@ package interview;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -118,6 +120,7 @@ public class SalesforceHR {
         matrix.add(new ArrayList<>(List.of(-1,2,1)));
         matrix.add(new ArrayList<>(List.of(2,2,1)));
         pairs(3, matrix);
+
     }
 
 }

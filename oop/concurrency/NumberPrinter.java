@@ -64,50 +64,50 @@ public class NumberPrinter {
             Print 41-50 in 1 thread sequencially
          */
 
-//        Runnable r = new Runnable() {
-//            @Override public void run() {
-//                for (int i = 1; i <= 10; i++){
-//                    System.out.println(Thread.currentThread().getName()+": "+ i);
-//                }
-//            }
-//        };
-//
-//        Thread t1 = new Thread(r);
-//        t1.start();
-//
-//        Thread.sleep(5);
-//
-//        AtomicInteger i = new AtomicInteger(11);
-//        Runnable r1 = new Runnable() {
-//            @Override public void run() {
-//                while (true){
-//                    synchronized (i) {
-//                        int next = i.getAndIncrement();
-//                        if (next > 40) {
-//                            i.notifyAll();
-//                            break;
-//                        }
-//                        System.out.println(Thread.currentThread().getName() + ": " + next);
-//                        i.notifyAll();
-//                        try {
-//                            i.wait();
-//                        } catch (InterruptedException e) {
-//                            throw new RuntimeException(e);
-//                        }
-//                    }
-//                }
-//
-//            }
-//        };
-//
-//        Thread t2 = new Thread(r1);
-//        Thread t3 = new Thread(r1);
-//        Thread t4 = new Thread(r1);
-//        Thread t5 = new Thread(r1);
-//        t2.start();
-//        t3.start();
-//        t4.start();
-//        t5.start();
+        Runnable r = new Runnable() {
+            @Override public void run() {
+                for (int i = 1; i <= 10; i++){
+                    System.out.println(Thread.currentThread().getName()+": "+ i);
+                }
+            }
+        };
+
+        Thread t1 = new Thread(r);
+        t1.start();
+
+        Thread.sleep(5);
+
+        AtomicInteger i = new AtomicInteger(11);
+        Runnable r1 = new Runnable() {
+            @Override public void run() {
+                while (true){
+                    synchronized (i) {
+                        int next = i.getAndIncrement();
+                        if (next > 40) {
+                            i.notifyAll();
+                            break;
+                        }
+                        System.out.println(Thread.currentThread().getName() + ": " + next);
+                        i.notifyAll();
+                        try {
+                            i.wait();
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
+
+            }
+        };
+
+        Thread t2 = new Thread(r1);
+        Thread t3 = new Thread(r1);
+        Thread t4 = new Thread(r1);
+        Thread t5 = new Thread(r1);
+        t2.start();
+        t3.start();
+        t4.start();
+        t5.start();
 
         Number number = new Number(50, 4);
         number.run();
