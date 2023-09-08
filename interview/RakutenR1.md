@@ -13,7 +13,7 @@ Common -
 7. What are fail-fast vs fail-safe iterator.
 
 Multi threading -
-1. What are different thread pools.
+1. What is thread pools? what are different thread pools.
 2. Default run() method will get called if class implementing 'Thread' does not have a run().
 3. transient, volatile keywords.
 4. Callable and Runnable difference.
@@ -25,3 +25,4 @@ Spring boot -
 4. IOC
 5. What is Front controller?
 6. Different Hibernate object states?
+7. What are Producer and Consumer?
