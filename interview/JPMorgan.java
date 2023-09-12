@@ -3,12 +3,11 @@ package interview;
 public class JPMorgan {
 
     public static void main(String[] args) {
-        System.out.println(breakPalindrome("aaa"));
+//        System.out.println(breakPalindrome("aaa"));
+        System.out.println(lotteryTicketWinner(90));
     }
 
     public static String breakPalindrome(String palindromeStr) {
-        // Write your code here
-
         int n = palindromeStr.length();
         // change each char of string starting from 0 -> n-1
         for(int i = 0; i< n; i++){
@@ -57,9 +56,32 @@ public class JPMorgan {
             }
         }
 
-
-
         return true;
+    }
+
+    public static int lotteryTicketWinner(int n){
+        // n in range 1 - 10^4
+        int[] arr = new int[37];
+        for(int i = 1; i<=n; i++){
+            int sum = sumOfNum(i);
+            arr[sum] += 1;
+        }
+
+        int max = Integer.MIN_VALUE;
+            for(int i: arr){
+            max = Math.max(max, i);
+        }
+        return max;
+
+    }
+
+    public static int sumOfNum(int n){
+        int sum = 0;
+        while(n>0){
+            sum += n%10;
+            n = n/10;
+        }
+        return sum;
     }
 
 }
