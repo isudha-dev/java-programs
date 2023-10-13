@@ -1,6 +1,6 @@
 package interview;
 
-public class JPMorgan {
+public interface JPMorgan {
 
     public static void main(String[] args) {
 //        System.out.println(breakPalindrome("aaa"));

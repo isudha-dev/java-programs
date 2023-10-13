@@ -1,12 +1,14 @@
 package dsa.sorting;
 
+import java.util.Arrays;
+
 public class MergeSort {
 
     public static void main(String[] args) {
 
         int[] A = new int[] { 8, 5, 7, 3, 4, 1, 2, 6 };
         mergeSort(A, 0, 7);
-        System.out.println(A);
+        Arrays.stream(A).forEach(System.out::print);
         // mergeSortedArray(new int[] { 1, 3, 4, 7, 2, 5, 6, 8 }, 0, 3, 7);
     }
 

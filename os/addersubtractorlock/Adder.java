@@ -1,4 +1,4 @@
-package addersubtractorlock;
+package os.addersubtractorlock;
 
 import java.util.concurrent.locks.Lock;
 

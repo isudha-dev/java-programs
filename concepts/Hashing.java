@@ -49,11 +49,11 @@ public class Hashing {
         Enumeration<Integer> enumKey = table.keys();
         Collection<String> enumVal = table.values();
 
-        HashMap<String, String> map = new HashMap<>();
+        HashMap<Integer, String> map = new HashMap<>();
 
-        Iterator<Map.Entry<String, String>> iteratorMap = map.entrySet().iterator();
+        Iterator<Map.Entry<Integer, String>> iteratorMap = map.entrySet().iterator();
         Iterator<String> iteratorValue = map.values().iterator();
-        Iterator<String> iteratorKey = map.keySet().iterator();
+        Iterator<Integer> iteratorKey = map.keySet().iterator();
 
         table.put(1, "Java");
         table.put(2, "Scala");
@@ -65,6 +65,18 @@ public class Hashing {
 
         // Java 8 introduction
         table.forEach((key, value) -> {
+            if(value == "Java") {
+                ans.add(key);
+            }
+        });
+
+        System.out.println(ans);
+
+        map.put(6, "C");
+        map.put(7, "Java");
+        map.put(8, "Java");
+
+        map.forEach((key, value) -> {
             if(value == "Java") {
                 ans.add(key);
             }

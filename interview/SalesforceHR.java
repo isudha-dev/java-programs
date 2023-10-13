@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.Set;
 
-public class SalesforceHR {
+public interface SalesforceHR {
 
     public static void pairs(int s, List<List<Integer>> matrix){
         int count = 0;

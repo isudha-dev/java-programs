@@ -1,4 +1,4 @@
-package addersubtractorsync;
+package os.addersubtractorsync;
 
 public class Adder implements Runnable {
     Count count;

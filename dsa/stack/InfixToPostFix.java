@@ -6,6 +6,8 @@ import java.util.Stack;
 public class InfixToPostFix {
     public static void main(String[] args) {
         System.out.println(solve("q+(c*t)*o+(g*g)+q*(i-a)*p-(i*l)"));
+
+        // qct*o*+gg*+qia-*p*+il*-
     }
 
     public static String solve(String A) {
