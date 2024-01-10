@@ -13,9 +13,9 @@ public class AllSubset {
     static ArrayList<ArrayList<Integer>> subsets(ArrayList<Integer> A) {
         ArrayList<ArrayList<Integer>> resList = new ArrayList<>();
         // Since values are required in lex order lets sort given collection
-        Collections.sort(A);
+//        Collections.sort(A);
         // call recursive method
-        computeSubSet(0, A, new ArrayList<Integer>(), resList);
+        computeSubSet(0, A, new ArrayList<>(), resList);
         return resList;
     }
 

@@ -1,4 +1,4 @@
-package mergesort;
+package os.mergesort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class MergeSorter implements Callable<List<Integer>> {
     List<Integer> listToSort;
     ExecutorService es;
 
-    MergeSorter(List<Integer> listToSort, ExecutorService es) {
+    public MergeSorter(List<Integer> listToSort, ExecutorService es) {
         this.listToSort = listToSort;
         this.es = es;
     }

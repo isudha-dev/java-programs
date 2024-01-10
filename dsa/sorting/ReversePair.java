@@ -14,8 +14,7 @@ public class ReversePair {
     // 51 vs 36
     static int solve(int[] A) {
 
-        int cout = revPairs(A, 0, A.length - 1);
-        return cout;
+        return revPairs(A, 0, A.length - 1);
 
     }
 

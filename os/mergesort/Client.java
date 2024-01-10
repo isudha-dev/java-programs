@@ -1,4 +1,6 @@
-package mergesort;
+package os.mergesort;
+
+import os.mergesort.MergeSorter;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

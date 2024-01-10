@@ -9,7 +9,7 @@ public class Adder implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 1; i <= 7000; i++)
+        for (int i = 1; i <= 1000; i++)
             count.val += i;
 
     }

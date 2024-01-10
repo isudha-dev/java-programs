@@ -9,6 +9,7 @@ public class Client implements Runnable {
         t1.start();
         t2.start();
         t3.start();
+        System.gc();
     }
 
     @Override
