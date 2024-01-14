@@ -2,6 +2,11 @@ package oop.anonclass;
 
 public class HelloWorldAnonymousClasses {
 
+    /*
+    HelloWorldAnonymousClasses, uses anonymous classes in the initialization statements of the local variables
+    frenchGreeting and spanishGreeting, but uses a local class for the initialization of the variable englishGreeting
+     */
+
     interface HelloWorld {
         public void greet();
         public void greetSomeone(String someone);
@@ -20,9 +25,9 @@ public class HelloWorldAnonymousClasses {
             }
         }
 
-        HelloWorld englishGreeting = new EnglishGreeting();
+        HelloWorld englishGreeting = new EnglishGreeting(); // non-anonymous way
 
-        HelloWorld frenchGreeting = new HelloWorld() {
+        HelloWorld frenchGreeting = new HelloWorld() { // anonymous class
             String name = "tout le monde";
             public void greet() {
                 greetSomeone("tout le monde");
@@ -33,7 +38,7 @@ public class HelloWorldAnonymousClasses {
             }
         };
 
-        HelloWorld spanishGreeting = new HelloWorld() {
+        HelloWorld spanishGreeting = new HelloWorld() { // anonymous class
             String name = "mundo";
             public void greet() {
                 greetSomeone("mundo");

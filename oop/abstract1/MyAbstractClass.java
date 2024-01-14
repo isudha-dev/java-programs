@@ -2,10 +2,12 @@ package oop.abstract1;
 
 public abstract class MyAbstractClass {
 
+
     int i = 100;
     public int j = 200;
     protected int k = 300;
     private int l = 400;
+    static int m = 500;
 
     static void staticMethod(){
         System.out.println("MyAbstractClass static method");
@@ -22,10 +24,10 @@ public abstract class MyAbstractClass {
     }
 
     protected void protectedMethod(){
-        System.out.println("MyAbstractClass private method");
+        System.out.println("MyAbstractClass protected method");
     }
 
-    void publicMethod() {
+    public void publicMethod() {
         System.out.println("MyAbstractClass public method");
     }
 
