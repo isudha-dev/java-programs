@@ -15,16 +15,18 @@ Set of common Data Structures available in Java out of the box
   - **HashMap**
     - simplest way to store key-value pairs
   - **LinkedHashMap**
-    - ordering of keys
+    - ordering of keys based on insertion
 - Iterable
     - Collection
         - List
             - **ArrayList**
               - simplest way to create a list
-              - indexed access
+              - faster random access through index
+              - for read-heavy usage
             - **LinkedList**
               - if direct access to index not needed
-              - faster insert
+              - faster insert, deletion
+              - for write-heavy usage
             - **Vector**
               - thread safe access to all methods
               - slower than array list
@@ -33,6 +35,7 @@ Set of common Data Structures available in Java out of the box
         - Queue
             - **LinkedList**
             - **ArrayDeque**
+              - doubly ended queue
               - insert/remove on both ends
               - not thread safe
             - **PriorityQueue**

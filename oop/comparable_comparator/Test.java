@@ -34,10 +34,10 @@ public class Test {
         System.out.println("After writer compare " + list1);
 
         // lambda comparator
-        list1.sort((o1, o2) -> {
-            return o1.singer.compareTo(o2.singer);
-        });
-        // list1.sort(Comparator.comparing(o -> o.singer)); 1.8 update
+        //        list1.sort((o1, o2) -> {
+        //            return o1.singer.compareTo(o2.singer);
+        //        });
+        list1.sort(Comparator.comparing(o -> o.singer)); // 1.8 update
         System.out.println("After singer compare " + list1);
 
     }
