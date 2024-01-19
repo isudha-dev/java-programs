@@ -3,9 +3,9 @@ package javas.Collection;
 public class Student implements Comparable<Student>{
     String name;
     int id;
-    Double psp;
+    int psp;
 
-    public Student(final String name, final int id, final Double psp) {
+    public Student(final String name, final int id, final int psp) {
         this.name = name;
         this.id = id;
         this.psp = psp;

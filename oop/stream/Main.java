@@ -25,7 +25,8 @@ public class Main {
         // reduce
         Optional<Integer> sumList = intList
             .stream()
-            .reduce((acc, curr) -> acc+curr);
+            .reduce(
+                    (acc, curr) -> acc+curr);
 
         // reduce with identity
         System.out.println(sumList.get());

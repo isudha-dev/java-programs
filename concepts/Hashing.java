@@ -1,13 +1,6 @@
 package concepts;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Hashing {
@@ -65,7 +58,7 @@ public class Hashing {
 
         // Java 8 introduction
         table.forEach((key, value) -> {
-            if(value == "Java") {
+            if(Objects.equals(value, "Java")) {
                 ans.add(key);
             }
         });
@@ -77,7 +70,7 @@ public class Hashing {
         map.put(8, "Java");
 
         map.forEach((key, value) -> {
-            if(value == "Java") {
+            if(Objects.equals(value, "Java")) {
                 ans.add(key);
             }
         });

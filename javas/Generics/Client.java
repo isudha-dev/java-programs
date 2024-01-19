@@ -2,11 +2,10 @@ package javas.Generics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 
 public class Client {
 
@@ -125,5 +124,6 @@ public class Client {
     Write a generic method to count the number of elements in a collection that have a specific property
     (for example, odd integers, prime numbers, palindromes).
      */
+
 }
 
