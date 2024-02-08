@@ -241,7 +241,7 @@ public class Problems15_190124 {
         int high = n;
         while (low<=high){
             int cut1 = (low+high)/2;
-            int cut2 = ((n+m+1)/2)-cut1;
+            int cut2 = ((n+m+1)/2)-cut1; // +1 to ensure this works for both odd and even length
 
             int l1 = cut1 == 0 ? Integer.MIN_VALUE : A.get(cut1-1);
             int l2 = cut2 == 0 ? Integer.MIN_VALUE : B.get(cut2-1);
@@ -250,6 +250,7 @@ public class Problems15_190124 {
             int r2 = cut2 == m ? Integer.MAX_VALUE : B.get(cut2);
 
             if(l1<=r2 && l2 <= r1){
+                // we are in correct partition
                 if((n+m) % 2 != 0){
                     return Math.max(l1, l2);
                 } else {

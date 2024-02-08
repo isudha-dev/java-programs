@@ -1,9 +1,6 @@
 package dsa.maths;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 public class MajorityElem {
@@ -89,6 +86,9 @@ public class MajorityElem {
             }
         }
         count = 0;
+        int finalMaj = maj;
+        A.stream().filter(i -> i == finalMaj).count();
+
         for (int i = 0; i < n; i++) {
             if (A.get(i) == maj)
                 count++;
