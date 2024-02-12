@@ -35,7 +35,18 @@ public class Booking {
 //        System.out.println(dt);
 //        wordCount("acacabcatghhellomvnsdbworld", new String[]{"aca","cat","hello","world"});
 
-        minNumberOfPerfectSquare(20);
+//        minNumberOfPerfectSquare(20);
+
+        Review r1 = new Review(1, "Test1 Test2 Test3");
+        Review r2 = new Review(2, "Test2 Test3 Test3 Test3");
+        Review r3 = new Review(1, "Test1 Test2 Test2");
+        Review r4 = new Review(1, "Test3");
+        Review r5 = new Review(2, "Test1 Test2");
+        Review r6 = new Review(3, "Test3");
+        Review r7 = new Review(4, "Test1 Test3");
+
+        sortedReviews(new String[]{"Test2", "Test3"}, new ArrayList<>(Arrays.asList(r1,r2,r3,r4,r5,r6,r7)));
+
 
     }
     static class Hotel{
@@ -347,6 +358,37 @@ public class Booking {
 
 
 
+    }
+
+    static class Review {
+        int hotelId;
+        String review;
+
+        public Review(int hotelId, String review) {
+            this.hotelId = hotelId;
+            this.review = review;
+        }
+    }
+    static void sortedReviews( String[] words, List<Review> reviews){
+        Map<Integer, Integer> hotelIdWordCount = new HashMap<>();
+
+        for(Review review: reviews){
+            String reviewComment = review.review;
+            int count = 0;
+            for(String w: words){
+                if(reviewComment.contains(w)){
+                    Pattern p = Pattern.compile(w);
+                    Matcher matcher = p.matcher(reviewComment);
+                    while (matcher.find())
+                        count++;
+                }
+            }
+            hotelIdWordCount.put(review.hotelId, hotelIdWordCount.getOrDefault(review.hotelId, 0)+count);
+        }
+
+        List<Map.Entry<Integer, Integer>> entries = hotelIdWordCount.entrySet().stream().sorted(Comparator.comparing(Map.Entry<Integer, Integer>::getKey).thenComparing(Map.Entry::getValue)).collect(Collectors.toList());
+
+        entries.stream().forEach(entry -> System.out.println("HotelId: "+ entry.getKey() + " Review Count: "+ entry.getValue()));
     }
 
 }
