@@ -2,7 +2,7 @@ package ProblemSolving;
 
 import java.util.*;
 
-public class Problems_26Feb_29Feb {
+public class Problems_26Feb_07Mar {
     public static void main(String[] args) {
 //        intersect(new ArrayList<>(Arrays.asList(2, 3, 3, 4, 4, 6, 8, 8, 9, 9, 10, 10, 11, 14, 14, 15, 16, 18, 20, 21, 23, 23, 24, 25, 28, 29, 33, 33, 35, 35, 37, 38, 38, 40, 41, 42, 42, 44, 44, 47, 47, 49, 49, 52, 53, 56, 58, 61, 62, 62, 63, 64, 65, 65, 66, 67, 67, 67, 68, 69, 72, 74, 76, 76, 79, 80, 82, 82, 83, 83, 83, 84, 85, 85, 85, 85, 87, 91, 93, 94, 94, 94, 95, 96, 101, 101)),
 //                new ArrayList<>(Arrays.asList(12, 12, 20, 39, 42, 44, 47, 73, 77))).forEach(System.out::println);
