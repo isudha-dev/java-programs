@@ -1,5 +1,10 @@
 package lld.designpatterns.prototyperegistry.student;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class SmartStudent extends Student{
 
   private int iq;
@@ -13,17 +18,8 @@ public class SmartStudent extends Student{
     this.iq = s.iq;
   }
 
-  public
-  SmartStudent clone(){
+  public SmartStudent clone(){
     return new SmartStudent(this);
-  }
-
-  public int getIq() {
-    return iq;
-  }
-
-  public void setIq(final int iq) {
-    this.iq = iq;
   }
 
   @Override public String toString() {

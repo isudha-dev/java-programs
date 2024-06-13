@@ -1,9 +1,7 @@
 package hld;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ConsistentHashing {
 
@@ -125,11 +123,26 @@ public class ConsistentHashing {
 //        hs.add(267);
 //        hs.remove(267);
 
-        List<String> A = List.of("ADD", "ASSIGN", "ASSIGN", "ADD", "ASSIGN", "ASSIGN", "REMOVE", "ASSIGN");
-        List<String> B = List.of("INDIA", "IRYA", "RGJK", "RUSSIA", "BGVH", "SUKJ", "INDIA", "RBRF");
-        List<Integer> C = List.of(11, 31, 7, 3, 5, 13, 23, 17);
+        ArrayList<String> A = new ArrayList<>(Arrays.asList("ADD","ASSIGN","ASSIGN","ASSIGN","ADD","ASSIGN","ASSIGN","ASSIGN","ADD","ASSIGN","ASSIGN","ASSIGN","ADD","ASSIGN","ASSIGN","ASSIGN","REMOVE","ASSIGN","ASSIGN","ASSIGN","REMOVE","ASSIGN","ASSIGN","ASSIGN","REMOVE","ASSIGN","ASSIGN"));
+        ArrayList<String> B = new ArrayList<>(Arrays.asList("INDIA","VLVL","OXXV","HHGN","RUSSIA","AWNF","SPHI","FXKT","CHINA","JXZU","BWPK","JYWN","GERMANY","ZKYK","HLQZ","BRMS","INDIA","FMVA","NPJO","GACA","RUSSIA","ZMWM","XVUA","IDUW","CHINA","EHWW","KROX"));
+        ArrayList<Integer> C = new ArrayList<>(Arrays.asList(431,563,223,761,197,409,31,223,769,619,991,613,139,797,547,821,-1,131,577,269,-1,499,599,29,-1,13,337));
 
-        solve1(A, B, C);
+        // 0,207,207,207,3,207,207,207,0,59,251,207,0,59,207,207,6,251,59,251,4,251,59,251,11,59,59
+
+//        ArrayList<String> A = new ArrayList<>(Arrays.asList("ADD","ASSIGN","ASSIGN","ADD","ASSIGN","ASSIGN","REMOVE","ASSIGN"));
+//        ArrayList<String> B = new ArrayList<>(Arrays.asList("INDIA","GSZJ","ORWX","RUSSIA","IENS","TTXU","INDIA","CHEX"));
+//        ArrayList<Integer> C = new ArrayList<>(Arrays.asList(211,181,919,383,571,127,-1,97));
+
+//        ArrayList<String> A = new ArrayList<>(Arrays.asList("ADD", "ASSIGN", "ADD", "ASSIGN", "REMOVE", "ASSIGN"));
+//        ArrayList<String> B = new ArrayList<>(Arrays.asList("INDIA", "NWFJ", "RUSSIA", "OYVL", "INDIA", "IGAX"));
+//        ArrayList<Integer> C = new ArrayList<>(Arrays.asList(7, 3, 5, 13, -1, 17));
+
+        ArrayList<Integer> output = solveNew(A, B, C);
+
+        output.forEach(System.out::println);
+
+
+//        System.out.println(getUpperbound(new ArrayList<>(Arrays.asList(5, 25, 50, 100, 150, 200, 300)), 300));
     }
 
     public static int userHash(String username, int hashKey){
@@ -143,5 +156,147 @@ public class ConsistentHashing {
             p_pow = (p_pow * p) % n;
         }
         return hashCode;
+    }
+
+
+    public static ArrayList<Integer> solveNew(ArrayList<String> A, ArrayList<String> B, ArrayList<Integer> C) {
+
+        HashMap<String, Integer> requestMapping = new HashMap<>(); // reqStr, reqHashVal
+        HashMap<String, Integer> serverMapping = new HashMap<>(); // serverStr, serverHashVal
+        TreeMap<Integer, ArrayList<String>> sortedReqMapping = new TreeMap<>(); // serverHashVal, list of req assigned
+
+        ArrayList<Integer> output = new ArrayList<>();
+
+        for(int i = 0; i<A.size(); i++){
+            switch (A.get(i)) {
+                case "ADD"-> {
+                /*
+                    1. get the hash
+                    2. add to sortedServerMapping with empty list of req
+                    3. get upperbound of hash+1
+                    4. get list of req from upperbound val
+                    5. find how many req need to be assigned (ones whose upper bound has changed)
+                    6. update mapping
+                 */
+
+                    int serverHash = userHash(B.get(i), C.get(i));
+                    serverMapping.put(B.get(i), serverHash);
+                    if(!sortedReqMapping.containsKey(serverHash)) {
+                        sortedReqMapping.put(serverHash, new ArrayList<>());
+                    } else {
+                        output.add(0);
+                        continue;
+                    }
+
+                    ArrayList<Integer> sortedList = new ArrayList<>(sortedReqMapping.keySet());
+                    int upperBound = getUpperbound(sortedList, serverHash+1);
+                    ArrayList<String> reqList = sortedReqMapping.get(upperBound);
+
+                    int count = 0;
+                    ArrayList<String> toBeRemoved = new ArrayList<>();
+                    for(String req: reqList){
+                       int reqUpperBound = getUpperbound(sortedList, requestMapping.get(req));
+                       if(reqUpperBound != upperBound){
+                           toBeRemoved.add(req);
+                           count++;
+
+                           sortedReqMapping.get(serverHash).add(req);
+                       }
+                    }
+
+                    toBeRemoved.forEach(o -> sortedReqMapping.get(upperBound).remove(o));
+                    output.add(count);
+
+
+                }
+                case "REMOVE"-> {
+                /*
+                    1. get the hashValue from serverMapping
+                    3. check if any req in list
+                    2. if yes. for each req, get the upperbound considering server is removed from list already
+                    3. reassign to new location
+                 */
+
+                    int serverHashVal = serverMapping.get(B.get(i));
+                    ArrayList<String> reqList = sortedReqMapping.get(serverHashVal);
+
+                    if (reqList.isEmpty()) {
+                        output.add(0);
+                    } else {
+                        ArrayList<Integer> sortedList = new ArrayList<>(sortedReqMapping.keySet());
+                        sortedList.remove(serverMapping.get(B.get(i)));
+                        int upperBound = 0;
+                        if(sortedList.isEmpty()){
+                            Collection<Integer> values = serverMapping.values();
+                            ArrayList<Integer> valueList = new ArrayList<>(values);
+                            Collections.sort(valueList);
+                            upperBound = getUpperbound(valueList, serverHashVal + 1);
+                            sortedReqMapping.put(upperBound, new ArrayList<>());
+                        } else {
+                            upperBound = getUpperbound(sortedList, serverHashVal + 1);
+                            sortedReqMapping.get(upperBound).addAll(reqList);
+                        }
+
+                        output.add(reqList.size());
+                    }
+                    serverMapping.remove(B.get(i));
+                    sortedReqMapping.remove(serverHashVal);
+                }
+                case "ASSIGN"-> {
+                /*
+                    1. get the hash
+                    2. update requestMapping
+                    3. get the upperbound and update sortedServerMapping
+                 */
+
+                    int reqHash = userHash(B.get(i), C.get(i));
+                    requestMapping.put(B.get(i), reqHash);
+
+                    ArrayList<Integer> sortedList = new ArrayList<>(sortedReqMapping.keySet());
+                    int upperBound = getUpperbound(sortedList, reqHash);
+
+                    sortedReqMapping.get(upperBound).add(B.get(i));
+
+                    output.add(upperBound);
+                }
+            }
+        }
+
+
+        return output;
+    }
+
+    // method to return upperbound
+
+    static int getUpperbound(ArrayList<Integer> sortedList, int key){
+        int n = sortedList.size();
+        if(n == 0){
+            return -1;
+        }
+        if(key > sortedList.get(n-1)){
+            return sortedList.getFirst();
+        }
+
+        /*
+            if match return value
+            if greater move left [r--]
+            if smaller, move right [l++]
+         */
+
+        int left = 0, right = n-1;
+        int ans = key;
+        while (left <= right){
+            int mid = (left+right)/2;
+            if(sortedList.get(mid) == key){
+                return sortedList.get(mid);
+            } else if (sortedList.get(mid) > key){
+                ans = sortedList.get(mid);
+                right = mid-1;
+            } else {
+                left = mid+1;
+            }
+        }
+
+        return ans;
     }
 }
