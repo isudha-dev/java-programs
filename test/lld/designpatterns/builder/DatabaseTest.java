@@ -1,7 +1,8 @@
 package test.lld.designpatterns.builder;
 
-import lld.designpatterns.builder.Database;
-import org.junit.jupiter.api.Test;
+import lld.designpatterns.creational.builder.Database;
+import org.junit.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DatabaseTest {

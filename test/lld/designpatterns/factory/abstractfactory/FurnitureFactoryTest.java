@@ -1,13 +1,13 @@
 package test.lld.designpatterns.factory.abstractfactory;
 
-import lld.designpatterns.factory.abstractfactory.furniture.FurnitureFactory;
-import lld.designpatterns.factory.abstractfactory.furniture.VictorianFurniture;
-import lld.designpatterns.factory.abstractfactory.furniture.components.chair.Chair;
-import lld.designpatterns.factory.abstractfactory.furniture.components.chair.VictorianChair;
-import lld.designpatterns.factory.abstractfactory.furniture.components.stool.Stool;
-import lld.designpatterns.factory.abstractfactory.furniture.components.stool.VictorianStool;
-import lld.designpatterns.factory.abstractfactory.furniture.components.table.Table;
-import lld.designpatterns.factory.abstractfactory.furniture.components.table.VictorianTable;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.FurnitureFactory;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.VictorianFurniture;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.components.chair.Chair;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.components.chair.VictorianChair;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.components.stool.Stool;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.components.stool.VictorianStool;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.components.table.Table;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.components.table.VictorianTable;
 import org.junit.Before;
 import org.junit.Test;
 
