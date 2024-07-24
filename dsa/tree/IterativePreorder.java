@@ -9,7 +9,7 @@ public class IterativePreorder {
         TreeNode curr = A;
         Stack<TreeNode> s = new Stack<>();
         ArrayList<Integer> arr = new ArrayList<>();
-        while (!s.isEmpty() || curr != null) {
+        while (!s.isEmpty() || curr != null) { // (!s.isEmpty() || curr == root)
             if (curr != null) {
                 arr.add(curr.val);
                 s.push(curr);

@@ -1,0 +1,20 @@
+Given and api which takes account Id and returns an URL with unique hash. This URL also redirects user to dashboard.
+What kind of error handling you will handle.
+
+account id
+    exist in db
+
+    200
+    400
+    500
+   "account is invalid"
+
+   401
+   "authentication"
+
+   500
+   "hash"
+
+What is abstract class? Difference with interface.
+
+What is Git and why its used.

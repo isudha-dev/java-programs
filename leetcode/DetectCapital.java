@@ -1,4 +1,4 @@
-package leetcode.java;/*
+package leetcode;/*
  * @lc app=leetcode id=520 lang=java
  *
  * [520] Detect Capital

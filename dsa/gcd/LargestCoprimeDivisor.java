@@ -1,10 +1,31 @@
 package dsa.gcd;
 
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class LargestCoprimeDivisor {
 
     public static void main(String[] args) {
 
         System.out.println(cpFact(88, 2));
+
+    }
+
+
+    public static boolean isPrime(long num){
+        if(num == 1){
+            return false;
+        }
+        for(int i = 2; i*i <= num; i++){
+            if(num % i == 0){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     static int cpFact(int A, int B) {
