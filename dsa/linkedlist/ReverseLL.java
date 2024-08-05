@@ -15,7 +15,7 @@ public class ReverseLL {
         }
         ListNode prev = null;
         ListNode curr = A;
-        ListNode next = null;
+        ListNode next;
 
         while (curr != null) {
             next = curr.next;

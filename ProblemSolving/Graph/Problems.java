@@ -19,21 +19,46 @@ public class Problems {
 
     public static void main(String[] args) {
 
-        ArrayList<ArrayList<Integer>> A = new ArrayList<>();
+        List<ArrayList<Integer>> edges = new ArrayList<>();
+        edges.add(new ArrayList<>(List.of(1,2)));
+        edges.add(new ArrayList<>(List.of(1,5)));
+        edges.add(new ArrayList<>(List.of(2,3)));
+        edges.add(new ArrayList<>(List.of(1,3)));
+        edges.add(new ArrayList<>(List.of(3,4)));
+        edges.add(new ArrayList<>(List.of(5,4)));
+        edges.add(new ArrayList<>(List.of(5,6)));
+        edges.add(new ArrayList<>(List.of(6,4)));
+
+        int n = 6;
+        List<ArrayList<Integer>> adjList = IntStream.range(0, n+1)
+                        .mapToObj(i -> new ArrayList<>(Collections.nCopies(0,0)))
+                                .collect(Collectors.toList());
+
+        for(ArrayList<Integer> list: edges){
+            int src = list.get(0);
+            int dest = list.get(1);
+
+            adjList.get(src).add(dest);
+            adjList.get(dest).add(src);
+        }
+
+        secondShortestPathFromSingleSource(n, adjList, 3, 4);
+
+//        ArrayList<ArrayList<Integer>> A = new ArrayList<>();
 //        A.add(new ArrayList<>(List.of(1, 2, 14)));
 //        A.add(new ArrayList<>(List.of(2, 3, 7)));
 //        A.add(new ArrayList<>(List.of(3, 1, 2)));
-        A.add(new ArrayList<>(List.of(0, 3, 4)));
-        A.add(new ArrayList<>(List.of(2, 3, 3)));
-        A.add(new ArrayList<>(List.of(0, 1, 9)));
-        A.add(new ArrayList<>(List.of(3, 4, 10)));
-        A.add(new ArrayList<>(List.of(1, 3, 8)));
+//        A.add(new ArrayList<>(List.of(0, 3, 4)));
+//        A.add(new ArrayList<>(List.of(2, 3, 3)));
+//        A.add(new ArrayList<>(List.of(0, 1, 9)));
+//        A.add(new ArrayList<>(List.of(3, 4, 10)));
+//        A.add(new ArrayList<>(List.of(1, 3, 8)));
 //        A.add(new ArrayList<>(List.of(0, 3, 7)));
 //        A.add(new ArrayList<>(List.of(0, 1, 1)));
 //        A.add(new ArrayList<>(List.of(4, 5, 7)));
 //        A.add(new ArrayList<>(List.of(0, 5, 1)));
 
-        System.out.println(constructionCost(6, A));
+//        System.out.println(constructionCost(6, A));
 
 
         // e 1 4 3 5 7 8 2 6
@@ -62,7 +87,6 @@ public class Problems {
 //        A.add(new ArrayList<>(List.of(2,7)));
 //        A.add(new ArrayList<>(List.of(4,6)));
 //        A.add(new ArrayList<>(List.of(5,6)));
-
         /*
             1: 2 3
             2: 1 3 4 5 7
@@ -72,7 +96,6 @@ public class Problems {
             6: 4 5
             7: 2
          */
-
 //        System.out.println(cycleInUndirectedGraph(2, A));
 
         // [[7,8],[1,2],[0,9],[1,3],[6,7],[0,3],[2,5],[3,8],[4,8]]
@@ -89,7 +112,6 @@ public class Problems {
 //        A.add(new ArrayList<>(List.of(1,3)));
 
 //        System.out.println( bipartiteGraph(A.size(), A));
-
         /*
 
             0: 9, 3
@@ -104,8 +126,6 @@ public class Problems {
             0 1 5 8 6
 
          */
-
-
 //        ArrayList<ArrayList<Integer>> A = new ArrayList<>();
 //        A.add(new ArrayList<>(List.of(2, 1, 1)));
 //        A.add(new ArrayList<>(List.of(1, 1, 0)));
@@ -130,7 +150,98 @@ public class Problems {
 //        B.add(new ArrayList<>(List.of(1,3)));
 //
 //        System.out.println(pathFrom1ToAInDirectedGraph(5, B));
+    }
 
+    public static int secondShortestPathFromSingleSource (int n, List<ArrayList<Integer>> adjList, int src, int dest){
+        int[] freq = new int[n+1];
+        int[] distance1 = new int[n+1];
+        Arrays.fill(distance1, Integer.MAX_VALUE);
+        int[] distance2 = new int[n+1];
+        Arrays.fill(distance2, Integer.MAX_VALUE);
+
+        distance1[src] = 0;
+        Queue<int[]> q = new LinkedList<>();
+        q.add(new int[]{src, 0});
+
+        while (!q.isEmpty()){
+            int[] top = q.poll();
+            int node = top[0];
+            int time = top[1];
+
+            if(node == dest && freq[node] == 2){
+                return time;
+            }
+
+            freq[node]++;
+            time++;
+
+            for (Integer nei: adjList.get(node)){
+                if(freq[nei] == 2){
+                    continue;
+                }
+                if(distance1[nei] > time){
+                    distance2[nei] = distance1[nei];
+                    distance1[nei] = time;
+                    q.add(new int[] {nei, time});
+                } else if(distance2[nei] > time && distance1[nei] != time) {
+                    distance2[nei] = time;
+                    q.add(new int[] {nei, time});
+                }
+            }
+        }
+        return distance2[dest];
+    }
+
+    public static void findBridges(int n, List<ArrayList<Integer>> edges){
+
+        List<ArrayList<Integer>> adjList = IntStream.range(0, n+1)
+                .mapToObj(i -> new ArrayList<>(Collections.nCopies(0, 0)))
+                .collect(Collectors.toList());
+
+        for(ArrayList<Integer> list: edges) {
+            int src = list.get(0);
+            int dest = list.get(1);
+            adjList.get(src).add(dest);
+            adjList.get(dest).add(src);
+        }
+
+        List<ArrayList<Integer>> bridges = new ArrayList<>();
+        // for each bridge check if there is another path to make those 2 nodes connected
+
+        for(ArrayList<Integer> list: edges){
+            boolean[] visited = new boolean[n+1];
+            int src = list.get(0);
+            int dest = list.get(1);
+
+            int pathCount = 0;
+            Queue<Integer> q = new LinkedList<>();
+            q.add(src);
+
+            while (!q.isEmpty()){
+                int top = q.poll();
+                if(top == dest && pathCount > 1){
+                    visited[top] = true;
+                    break;
+                }
+                if(top == dest && pathCount == 1){
+                    continue;
+                }
+                pathCount++;
+                visited[top] = true;
+
+                for (Integer nei: adjList.get(src)){
+                    if(visited[nei]){
+                        continue;
+                    }
+                    q.add(nei);
+                }
+            }
+
+            if (visited[dest]){
+                bridges.add(new ArrayList<>(List.of(src, dest)));
+            }
+        }
+        System.out.println(bridges);
     }
 
     public static int constructionCost(int A, ArrayList<ArrayList<Integer>> B) {

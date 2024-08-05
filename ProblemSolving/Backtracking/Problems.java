@@ -193,8 +193,6 @@ public class Problems {
 
         nQueensRecur(0, A, board, colsHs, lrDiagHs, rlDiagHs);
 
-
-
         return null;
     }
 
@@ -223,8 +221,6 @@ public class Problems {
         }
 
     }
-
-
 
     public static ArrayList<ArrayList<Integer>> permute(ArrayList<Integer> A) {
         ArrayList<Integer> temp = new ArrayList<>(Collections.nCopies(A.size(), -1));

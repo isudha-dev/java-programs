@@ -24,18 +24,25 @@ public class Merge2SortedList {
         while (p1 != null && p2 != null) {
             if (p1.val < p2.val) {
                 tail.next = p1;
-                tail = p1;
+                tail = tail.next;
                 p1 = p1.next;
             } else {
                 tail.next = p2;
-                tail = p2;
+                tail = tail.next;
                 p2 = p2.next;
             }
         }
-        if (p1 == null)
-            tail.next = p2;
-        if (p2 == null)
+        while (p1 != null){
             tail.next = p1;
+            tail = tail.next;
+            p1 = p1.next;
+        }
+
+        while (p2 != null){
+            tail.next = p2;
+            tail = tail.next;
+            p2 = p2.next;
+        }
 
         return head;
     }

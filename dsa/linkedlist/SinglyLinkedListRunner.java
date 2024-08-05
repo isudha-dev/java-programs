@@ -25,7 +25,7 @@ public class SinglyLinkedListRunner {
         A.add(new ArrayList<Integer>(Arrays.asList(new Integer[] { 1, 13, -1 })));
         A.add(new ArrayList<Integer>(Arrays.asList(new Integer[] { 3, 2, -1 })));
 
-        dsa.linkedlist.SinglyLinkedList.ListNode ln = newSol.solve(A);
+        SinglyLinkedList.ListNode ln = newSol.solve(A);
         System.out.println(ln);
 
     }

@@ -34,9 +34,37 @@ public class TreeProblems {
         // ex [8399 2667 1969 ] [3871 4167 5727 ] [460 504 4421 5661 7815 4292 9750 ] [4698 3096 434 ] [7515 3006 6693 ] [7389 ] [6906 ]
         // ac [8399 2667 1969 ] [3871 4167 5727 ] [460 5661 504 7815 4421 4292 9750 ] [4698 3096 434 ] [3006 7515 6693 ] [7389 ] [6906 ]
 
-        int ans = maxSumPath(root);
-        System.out.println(ans);
+//        int ans = maxSumPath(root);
+//        System.out.println(ans);
+        /*
+                      1
+                2           3
+            4       5   6       7
+                                    8
+         */
 
+        System.out.println("Preorder");
+        ArrayList<TreeNode> pro = preorderIterative(root);
+        pro.forEach(i -> System.out.print(i+" "));
+
+        System.out.println("\nInorder");
+        ArrayList<TreeNode> io = inorderIterative(root);
+        io.forEach(i -> System.out.print(i+" "));
+
+        System.out.println("\nPostorder");
+        ArrayList<TreeNode> po = postOrderIterative(root);
+        po.forEach(i -> System.out.print(i+" "));
+        System.out.println();
+
+        po = postOrderIterativeUsingPreorder(root);
+        po.forEach(i -> System.out.print(i+" "));
+        System.out.println();
+
+        ArrayList<Integer> poI = postOrderIterativeWith2Stacks(root);
+        poI.forEach(i -> System.out.print(i+" "));
+
+        System.out.println("\nLevel order");
+        levelOrderTraversal(root);
     }
 
     /*
@@ -113,7 +141,7 @@ public class TreeProblems {
             return true;
         }
 
-        return true;
+        return false;
     }
 
     public static ArrayList<Integer> serializeBinaryTree(TreeNode A) {
@@ -146,7 +174,6 @@ public class TreeProblems {
                 queue.add(null);
             }
         }
-
 
         return ans;
     }
@@ -221,10 +248,7 @@ public class TreeProblems {
 
             queue.add(curr.left);
             queue.add(curr.right);
-
-
         }
-
         return root;
     }
 
@@ -313,16 +337,18 @@ public class TreeProblems {
     public static ArrayList<TreeNode> preorderIterative(TreeNode root){
         ArrayList<TreeNode> ansList = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode curr = root;
+        stack.push(root);
 
-        while(!stack.isEmpty() || curr != null){
-            if(curr != null){
-                ansList.add(curr);
-                stack.push(curr);
-                curr = stack.peek().left;
-            } else {
-                curr = stack.peek().right;
-                stack.pop();
+        while(!stack.isEmpty()){
+            TreeNode curr = stack.pop();
+            ansList.add(curr);
+
+            // Push right child first so that left child is processed first
+            if(curr.right != null){
+                stack.push(curr.right);
+            }
+            if (curr.left != null){
+                stack.push(curr.left);
             }
 
         }
@@ -339,9 +365,9 @@ public class TreeProblems {
                 stack.push(curr);
                 curr = curr.left;
             } else {
-                ansList.add(stack.peek());
-                curr = stack.peek().right;
-                stack.pop();
+                curr = stack.pop();
+                ansList.add(curr);
+                curr = curr.right;
             }
         }
         return ansList;
@@ -371,8 +397,8 @@ public class TreeProblems {
         return arr;
     }
 
-    public static List<Integer> postOrderIterativeWith2Stacks(TreeNode root) {
-        List<Integer> postOrder = new ArrayList<>();
+    public static ArrayList<Integer> postOrderIterativeWith2Stacks(TreeNode root) {
+        ArrayList<Integer> postOrder = new ArrayList<>();
         if (root == null) {
             return postOrder;
         }
@@ -405,17 +431,18 @@ public class TreeProblems {
 
         ArrayList<TreeNode> ansList = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode curr = root;
-        stack.push(curr);
+        stack.push(root);
 
         while (!stack.isEmpty()){
-            if(curr != null){
-                ansList.add(curr);
-                stack.push(curr);
-                curr = stack.peek().right;
-            } else {
-                curr = stack.peek().left;
-                stack.pop();
+            TreeNode curr = stack.pop();
+            ansList.add(curr);
+
+            // Push left child first so that right child is processed first
+            if(curr.left != null){
+                stack.push(curr.left);
+            }
+            if (curr.right != null){
+                stack.push(curr.right);
             }
         }
 
@@ -495,6 +522,30 @@ public class TreeProblems {
         preorderForLevelPopulate(node.right, nodeLevel, map);
 
 
+    }
+
+    public static void levelOrderTraversal(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode current = queue.poll();
+            System.out.print(current.val + " ");
+
+            // Enqueue left child
+            if (current.left != null) {
+                queue.add(current.left);
+            }
+
+            // Enqueue right child
+            if (current.right != null) {
+                queue.add(current.right);
+            }
+        }
     }
 
     public static List<List<Integer>> levelOrderUsingQueueAndPairClass(TreeNode root){

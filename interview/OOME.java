@@ -3,6 +3,7 @@ package interview;
 import java.util.ArrayList;
 import java.util.List;
 
+// out of memory error
 public class OOME {
 
     public static void main(String[] args) {

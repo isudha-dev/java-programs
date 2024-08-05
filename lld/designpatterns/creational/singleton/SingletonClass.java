@@ -9,6 +9,19 @@ public class SingletonClass {
 
     public static SingletonClass getInstance() {
         if (instance == null) {
+            synchronized (SingletonClass.class) {
+                if (instance == null) {
+                    instance = new SingletonClass();
+                }
+            }
+        }
+
+        return instance;
+    }
+
+    /*
+    public static SingletonClass getInstance() {
+        if (instance == null) {
             System.out.println("Thread: " + Thread.currentThread().getName() + ", entering first if");
             synchronized (SingletonClass.class) {
                 System.out.println("Thread: " + Thread.currentThread().getName() + ", entering synchronize");
@@ -24,5 +37,6 @@ public class SingletonClass {
 
         return instance;
     }
+     */
 
 }

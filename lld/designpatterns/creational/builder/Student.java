@@ -69,7 +69,7 @@ public class Student {
         }
 
         public Student build() {
-            this.validate();
+            validate();
             Student s = new Student(this);
             return s;
         }
