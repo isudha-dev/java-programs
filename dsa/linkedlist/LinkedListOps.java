@@ -5,7 +5,7 @@ public class LinkedListOps {
     public static void main(String[] args) {
         int num = 1;
         ListNode head = new ListNode(num);
-        int len = 5;
+        int len = 4;
 
         LinkedListOps llo = new LinkedListOps();
         while (len > 0) {
@@ -13,15 +13,15 @@ public class LinkedListOps {
             len--;
         }
 
-        num = 10;
-        ListNode newHead = new ListNode(num);
-        len = 2;
-        while (len > 0) {
-            llo.insertAtLast(newHead, ++num);
-            len--;
-        }
+//        num = 10;
+//        ListNode newHead = new ListNode(num);
+//        len = 2;
+//        while (len > 0) {
+//            llo.insertAtLast(newHead, ++num);
+//            len--;
+//        }
 
-        System.out.println(llo.reverseListB(head, 2));
+        System.out.println(llo.rotateRight(head, 2));
 
     }
 
@@ -219,6 +219,35 @@ public class LinkedListOps {
     public ListNode insertListBeforeNode(ListNode newList, ListNode oldList, int position) {
 
         return null;
+    }
+
+    public static ListNode rotateRight(ListNode head, int k) {
+        if(head == null || head.next == null)
+            return head;
+
+        int len = 1;
+        ListNode temp = head;
+        while(temp.next != null) {
+            temp = temp.next;
+            len++;
+        }
+
+        k = len%k;
+
+        for(int i = 1; i<=k; i++){
+            temp = head;
+            while(temp.next.next != null){
+                temp = temp.next;
+            }
+
+            ListNode lastNode = temp.next;
+            temp.next = null;
+            lastNode.next = head;
+            head = lastNode;
+        }
+
+        return head;
+
     }
 
 }

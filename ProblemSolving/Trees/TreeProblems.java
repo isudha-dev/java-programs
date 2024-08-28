@@ -874,6 +874,14 @@ public class TreeProblems {
         return false;
     }
 
+    public void po(NAryTreeNode root, List<Integer> ans){
+        if(root == null)
+            return;
 
+        for(NAryTreeNode child: root.children) {
+            po(child, ans);
+        }
+        ans.add(root.val);
+    }
 
 }

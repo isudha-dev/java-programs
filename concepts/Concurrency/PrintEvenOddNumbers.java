@@ -1,65 +1,55 @@
-package oop.concurrency;
+package concepts.Concurrency;
 
-public class PrintEvenOddNumbers implements Runnable{
+public class PrintEvenOddNumbers{
     private int max;
-    private Printer print;
-    private boolean isEvenNumber;
+    private volatile boolean isOdd = true;
 
-    public PrintEvenOddNumbers(Printer print, int i, boolean b) {
-        this.print = print;
-        this.max = i;
-        this.isEvenNumber = b;
-
+    public PrintEvenOddNumbers(int max) {
+        this.max = max;
     }
 
-    @Override
-    public void run() {
-        int number = isEvenNumber ? 2 : 1;
-        while (number <= max) {
-            if (isEvenNumber) {
-                print.printEven(number);
-            } else {
-                print.printOdd(number);
-            }
-            number += 2;
-        }
-    }
-
-    public static void main(String... args) {
-        Printer print = new Printer();
-        Thread t1 = new Thread(new PrintEvenOddNumbers(print, 10, false),"Odd");
-        Thread t2 = new Thread(new PrintEvenOddNumbers(print, 10, true),"Even");
-        t1.start();
-        t2.start();
-    }
-
-    static class Printer {
-        private volatile boolean isOdd = true;
-
-        synchronized void printEven(int number) {
-            while (!isOdd) {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
+    public void printOdd() {
+        synchronized (this) {
+            for (int i = 1; i <= max; i += 2) {
+                while (!isOdd) {
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
                 }
+                System.out.println(Thread.currentThread().getName() + " - " + i);
+                isOdd = false;
+                notify();
             }
-            System.out.println(Thread.currentThread().getName() + ":" + number);
-            isOdd = false;
-            notify();
         }
+    }
 
-        synchronized void printOdd(int number) {
-            while (isOdd) {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
+    public void printEven() {
+        synchronized (this) {
+            for (int i = 2; i <= max; i += 2) {
+                while (isOdd) {
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
                 }
+                System.out.println(Thread.currentThread().getName() + " - " + i);
+                isOdd = true;
+                notify();
             }
-            System.out.println(Thread.currentThread().getName() + ":" + number);
-            isOdd = true;
-            notify();
         }
+    }
+
+    public static void main(String[] args) {
+        int max = 10;
+        PrintEvenOddNumbers printer = new PrintEvenOddNumbers(max);
+
+        Thread oddThread = new Thread(printer::printOdd, "OddThread");
+        Thread evenThread = new Thread(printer::printEven, "EvenThread");
+
+        oddThread.start();
+        evenThread.start();
     }
 }

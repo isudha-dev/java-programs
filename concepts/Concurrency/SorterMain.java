@@ -1,4 +1,4 @@
-package javas.Concurrency;
+package concepts.Concurrency;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

@@ -1,4 +1,4 @@
-package javas.serialization;
+package concepts.serialization;
 
 import java.io.*;
 

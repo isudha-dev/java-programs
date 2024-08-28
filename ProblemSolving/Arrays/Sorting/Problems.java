@@ -5,10 +5,37 @@ import java.util.Arrays;
 public class Problems {
 
     public static void main(String[] args) {
-        int[] A = {5, 3, 9, 12, 2, 0, 6, 7};
-//        insertionSort(new int[] {5, 3, 9, 12, 2, 0, 6, 7});
-        quickSort(A);
-        Arrays.stream(A).forEach(System.out::println);
+        mergeTwoSortedArraysWithoutExtraSpace(new long[]{1,1,1,1} , new long[]{2,2,3,3,5});
+    }
+
+    public static void mergeTwoSortedArraysWithoutExtraSpace(long []a, long []b){
+        // Write your code here.
+        int count = 0;
+        int l1 = a.length;
+        int l2 = b.length;
+        int p1 = 0, p2 = 0;
+        while(count != l1 && p1<l1 && p2<l2){
+            if(a[p1] <= b[p2]){
+                count++;
+                p1++;
+            } else {
+                count++;
+                p2++;
+            }
+        }
+
+        p2 = 0;
+        while (p1 < l1){
+            long temp = a[p1];
+            a[p1] = b[p2];
+            b[p2] = temp;
+            p2++;
+            p1++;
+        }
+
+        Arrays.sort(a);
+        Arrays.sort(b);
+
     }
 
     public static void insertionSort(int[] A){

@@ -1,4 +1,4 @@
-package javas.Concurrency;
+package concepts.Concurrency;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,7 @@ public class Sorter implements Callable<List<Integer>> {
         Future<List<Integer>> sortedLeftListFuture = es.submit(leftListSortingTask);
         Future<List<Integer>> sortedRightListFuture = es.submit(rightListSortingTask);
 
-        List<Integer> sortedLeftList = sortedLeftListFuture.get(); // blocking call until you get the list abck
+        List<Integer> sortedLeftList = sortedLeftListFuture.get(); // blocking call until you get the list back
         List<Integer> sortedRightList = sortedRightListFuture.get();
 
         // merge

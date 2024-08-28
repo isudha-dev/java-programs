@@ -1,4 +1,4 @@
-package javas.Concurrency;
+package concepts.Concurrency;
 
 public class NumberPrinter implements Runnable{
     int noToPrint;

@@ -1,4 +1,4 @@
-package javas.Concurrency;
+package concepts.Concurrency;
 
 public class HelloWorldMain {
 
@@ -9,7 +9,7 @@ public class HelloWorldMain {
         HelloWorldPrinter p = new HelloWorldPrinter();
         Thread t1 = new Thread(p);
         t1.start();
-        // t1.run(); runs in same thread as main
+//        t1.run(); // runs in same thread as main
 
         System.out.println(3 + " " + Thread.currentThread().getName());
         System.out.println(4 + " " + Thread.currentThread().getName());

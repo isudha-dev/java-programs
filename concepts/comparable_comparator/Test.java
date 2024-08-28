@@ -1,4 +1,4 @@
-package oop.comparable_comparator;
+package concepts.comparable_comparator;
 
 import java.util.ArrayList;
 import java.util.Collections;

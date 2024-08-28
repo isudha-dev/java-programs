@@ -1,7 +1,8 @@
-package oop.concurrency;
+package concepts.Concurrency;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+// same as MyNumberPrinter
 public class NumPrinter2 {
 
     public static void main(String[] args) {
