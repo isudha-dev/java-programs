@@ -8,7 +8,7 @@ public class GetMedian2Array {
     // now consider two dsa.arrays and both are sorted. Find median. Answer should be
     // exactly same as if it was single array with all the values sorted.
     public static void main(String[] args) {
-        System.out.println(getMedian(new int[] { 1, 3, 5, 8 }, new int[] { 5, 6 }));
+        System.out.println(getMedian(new int[] { -5, 0, 1, 5, 9, 10, 11}, new int[] { -1, 1, 2, 6, 19 }));
     }
 
     static float getMedian(int[] A, int[] B) {
@@ -22,7 +22,7 @@ public class GetMedian2Array {
         float prevValue = 0;
         while (index <= targetIndex && p1 < A.length && p2 < B.length) {
             prevValue = value;
-            if (A[p1] < B[p2]) {
+            if (A[p1] <= B[p2]) {
                 value = A[p1];
                 p1++;
             } else {
@@ -30,9 +30,27 @@ public class GetMedian2Array {
                 p2++;
             }
             if (len % 2 == 0 && index == targetIndex) {
-                value = (value + prevValue) / 2;
+                return  (value + prevValue) / 2;
             }
             index++;
+        }
+
+        while (index <= targetIndex && p1 < A.length) {
+            prevValue = value;
+            value = A[p1];
+            p1++;
+            index++;
+        }
+
+        while (index <= targetIndex && p2 < B.length) {
+            prevValue = value;
+            value = B[p2];
+            p2++;
+            index++;
+        }
+
+        if (len % 2 == 0) {
+            return  (value + prevValue) / 2;
         }
 
         return value;
