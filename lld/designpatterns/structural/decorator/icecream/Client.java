@@ -1,4 +1,4 @@
-package lld.designpatterns.structural.decorator.pizza;
+package lld.designpatterns.structural.decorator.icecream;
 
 public class Client {
 

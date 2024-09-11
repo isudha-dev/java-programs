@@ -1,4 +1,8 @@
 package lld.designpatterns.structural.decorator.datasource;
 
-public class Datasource {
+public interface Datasource {
+
+    String read();
+
+    void write(String value);
 }

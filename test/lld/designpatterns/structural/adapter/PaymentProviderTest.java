@@ -1,4 +1,4 @@
-package test.lld.designpatterns.adapter;
+package test.lld.designpatterns.structural.adapter;
 
 import lld.designpatterns.structural.adapter.PaymentProvider;
 import lld.designpatterns.structural.adapter.RazorpayPaymentProvider;
