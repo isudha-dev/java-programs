@@ -11,7 +11,7 @@ import lld.designpatterns.creational.factory.abstractfactory.furniture.component
 import lld.designpatterns.creational.factory.abstractfactory.furniture.components.table.VictorianTable;
 
 // concrete factory
-public class VictorianFurniture implements FurnitureFactory {
+public class VictorianFurnitureFactory implements FurnitureFactory {
     @Override
     public Chair createChair() {
         return new VictorianChair();

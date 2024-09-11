@@ -1,7 +1,12 @@
 package lld.designpatterns.creational.prototyperegistry.train;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Setter
+@Getter
 public class Train implements Prototype<Train> {
 
   private int fare;
@@ -23,24 +28,6 @@ public class Train implements Prototype<Train> {
 
   }
 
-  public void setFare(final int fare) {
-    this.fare = fare;
-  }
-  public void setTrainType(final String trainType) {
-    this.trainType = trainType;
-  }
-  public void setEngineType(final String engineType) {
-    this.engineType = engineType;
-  }
-  public void setNoOfSeats(final int noOfSeats) {
-    this.noOfSeats = noOfSeats;
-  }
-  public void setTime(final String time) {
-    this.time = time;
-  }
-  public void setStations(final List<String> stations) {
-    this.stations = stations;
-  }
   @Override public Train clone() {
     return new Train(this);
   }

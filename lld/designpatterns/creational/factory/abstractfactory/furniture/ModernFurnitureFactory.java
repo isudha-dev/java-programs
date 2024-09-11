@@ -1,26 +1,26 @@
 package lld.designpatterns.creational.factory.abstractfactory.furniture;
 
 import lld.designpatterns.creational.factory.abstractfactory.furniture.components.chair.Chair;
-import lld.designpatterns.creational.factory.abstractfactory.furniture.components.chair.JuteChair;
-import lld.designpatterns.creational.factory.abstractfactory.furniture.components.stool.JuteStool;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.components.chair.ModernChair;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.components.stool.ModernStool;
 import lld.designpatterns.creational.factory.abstractfactory.furniture.components.stool.Stool;
-import lld.designpatterns.creational.factory.abstractfactory.furniture.components.table.JuteTable;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.components.table.ModernTable;
 import lld.designpatterns.creational.factory.abstractfactory.furniture.components.table.Table;
 
 // concrete factory
-public class JuteFurniture implements FurnitureFactory {
+public class ModernFurnitureFactory implements FurnitureFactory {
     @Override
     public Chair createChair() {
-        return new JuteChair();
+        return new ModernChair();
     }
 
     @Override
     public Stool createStool() {
-        return new JuteStool();
+        return new ModernStool();
     }
 
     @Override
     public Table createTable() {
-        return new JuteTable();
+        return new ModernTable();
     }
 }

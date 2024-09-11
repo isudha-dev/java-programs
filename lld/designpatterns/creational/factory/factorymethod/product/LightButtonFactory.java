@@ -1,7 +1,7 @@
 package lld.designpatterns.creational.factory.factorymethod.product;
 
-import lld.designpatterns.creational.factory.simplefactory.Button;
-import lld.designpatterns.creational.factory.simplefactory.LightButton;
+import lld.designpatterns.creational.factory.factorymethod.factory.Button;
+import lld.designpatterns.creational.factory.factorymethod.factory.LightButton;
 
 public class LightButtonFactory implements ButtonFactory{
     @Override

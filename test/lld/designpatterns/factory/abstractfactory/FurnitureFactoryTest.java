@@ -1,7 +1,7 @@
 package test.lld.designpatterns.factory.abstractfactory;
 
 import lld.designpatterns.creational.factory.abstractfactory.furniture.FurnitureFactory;
-import lld.designpatterns.creational.factory.abstractfactory.furniture.VictorianFurniture;
+import lld.designpatterns.creational.factory.abstractfactory.furniture.VictorianFurnitureFactory;
 import lld.designpatterns.creational.factory.abstractfactory.furniture.components.chair.Chair;
 import lld.designpatterns.creational.factory.abstractfactory.furniture.components.chair.VictorianChair;
 import lld.designpatterns.creational.factory.abstractfactory.furniture.components.stool.Stool;
@@ -19,7 +19,7 @@ public class FurnitureFactoryTest {
 
     @Before
     public void setUp(){
-        furnitureFactory = new VictorianFurniture();
+        furnitureFactory = new VictorianFurnitureFactory();
     }
 
     @Test

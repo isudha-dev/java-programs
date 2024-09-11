@@ -2,8 +2,8 @@ package test.lld.designpatterns.factory.factorymethod;
 
 import lld.designpatterns.creational.factory.factorymethod.product.ButtonFactory;
 import lld.designpatterns.creational.factory.factorymethod.product.DarkButtonFactory;
-import lld.designpatterns.creational.factory.simplefactory.Button;
-import lld.designpatterns.creational.factory.simplefactory.DarkButton;
+import lld.designpatterns.creational.factory.factorymethod.factory.Button;
+import lld.designpatterns.creational.factory.factorymethod.factory.DarkButton;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
