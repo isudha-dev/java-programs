@@ -1,4 +1,4 @@
-package oop.inheritance;
+package concepts.inheritance;
 
 public class Child extends Parent {
     public int a3;

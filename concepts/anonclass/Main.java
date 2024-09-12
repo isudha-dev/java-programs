@@ -1,4 +1,4 @@
-package oop.anonclass;
+package concepts.anonclass;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,6 +23,7 @@ public class Main {
         // Calling methods from the anonymous class
         myObject.display();
         myObject.myMethod();
+//        myObject.innerMethod(); this method can not be called because interface does not have this
     }
 }
 

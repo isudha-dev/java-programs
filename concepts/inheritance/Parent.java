@@ -1,4 +1,4 @@
-package oop.inheritance;
+package concepts.inheritance;
 
 public class Parent {
     public int a1;

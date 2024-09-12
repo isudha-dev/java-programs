@@ -1,5 +1,10 @@
 package lld.designpatterns.behavioral.observer;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class ReturnData {
 
     String data;
@@ -7,13 +12,6 @@ public class ReturnData {
     public ReturnData(String data) {
         this.data = data;
         System.out.println(data);
-    }
-
-    public String getData() {
-        return data;
-    }
-    public void setData(final String data) {
-        this.data = data;
     }
 
 

@@ -2,6 +2,7 @@ package lld.designpatterns.behavioral.strategy;
 
 public class PathCalculatorFactory {
 
+    // simple factory - violating SRP
     public static PathCalculaterStrategy getPathCalculator(String mode){
         if(mode.equals("Car")){
             return CarPathCalculator.getInstance();

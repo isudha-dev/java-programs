@@ -1,6 +1,6 @@
-package oop.inheritance.pck1;
+package concepts.inheritance.pck1;
 
-public class Test {
+public class Client {
 
     public static void main(String[] args) {
         User u = new User(10, "address line 1", "Dev", "Sudha");
@@ -18,7 +18,6 @@ public class Test {
         System.out.println();
 
         User u1 = new Student(30, "address line 3", "Ops", "Shail");
-
         u1.displayAddress();
         u1.displayDesignation();
         u1.displayName();

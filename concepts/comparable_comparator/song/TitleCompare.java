@@ -1,4 +1,4 @@
-package concepts.comparable_comparator;
+package concepts.comparable_comparator.song;
 
 import java.util.Comparator;
 

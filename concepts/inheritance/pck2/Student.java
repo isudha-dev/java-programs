@@ -1,6 +1,6 @@
-package oop.inheritance.pck2;
+package concepts.inheritance.pck2;
 
-import oop.inheritance.pck1.User;
+import concepts.inheritance.pck1.User;
 
 public class Student extends User {
 

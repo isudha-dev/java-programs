@@ -1,4 +1,4 @@
-package oop.abstract1;
+package concepts.abstract1;
 
 public abstract class MyAbstractClass {
 
@@ -11,26 +11,29 @@ public abstract class MyAbstractClass {
 
     static void staticMethod(){
         System.out.println("MyAbstractClass static method");
+        System.out.println("MyAbstractClass static var " +m);
     }
 
     private void privateMethod(){
         System.out.println("MyAbstractClass private method");
+        System.out.println("MyAbstractClass private var " +l);
     }
 
     void defaultMethod() {
-        System.out.println("Private var i: "+ i);
-        System.out.println("Private var l: "+ l);
         System.out.println("MyAbstractClass default method");
+        System.out.println("MyAbstractClass default var " +i);
     }
 
     protected void protectedMethod(){
         System.out.println("MyAbstractClass protected method");
+        System.out.println("MyAbstractClass protected var " +k);
     }
 
     public void publicMethod() {
         System.out.println("MyAbstractClass public method");
+        System.out.println("MyAbstractClass static var " +j);
     }
 
-//    abstract void abstractMethod();
+    abstract void abstractMethod();
 
 }

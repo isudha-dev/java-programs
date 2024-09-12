@@ -1,4 +1,4 @@
-package oop.inheritance.pck1;
+package concepts.inheritance.pck1;
 
 public class User {
     private int age;
@@ -30,6 +30,16 @@ public class User {
 
     public final void finalMethod(){
         System.out.println("This is final method");
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "age=" + age +
+                ", fullAddress='" + fullAddress + '\'' +
+                ", designation='" + designation + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 
 

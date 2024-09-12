@@ -1,4 +1,4 @@
-package oop.anonclass;
+package concepts.anonclass;
 
 public class HelloWorldAnonymousClasses {
 

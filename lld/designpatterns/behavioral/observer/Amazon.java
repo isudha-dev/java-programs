@@ -3,8 +3,11 @@ package lld.designpatterns.behavioral.observer;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// product interface to add, remove and notify observers
 public class Amazon {
 
+    // for making this class singleton
     private static Amazon instance;
     private List<OrderPlaceSubscriber> orderPlaceSubscribers;
     private List<OrderCancelSubscriber> orderCancelSubscribers;

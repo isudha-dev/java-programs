@@ -1,4 +1,4 @@
-package oop.interface1;
+package concepts.interface1;
 
 public class MyClass implements I1, I2{
 

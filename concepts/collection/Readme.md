@@ -16,6 +16,16 @@ Set of common Data Structures available in Java out of the box
     - simplest way to store key-value pairs
   - **LinkedHashMap**
     - ordering of keys based on insertion
+  - **TreeMap**
+    - ordering of keys based on sorting
+  - **ConcurrentHashMap**
+    - thread safe hashmap
+  - **HashTable**
+    - Legacy implementation which is thread safe
+
+
+![img.png](img.png)
+
 - Iterable
     - Collection
         - List
@@ -28,7 +38,7 @@ Set of common Data Structures available in Java out of the box
               - faster insert, deletion
               - for write-heavy usage
             - **Vector**
-              - thread safe access to all methods
+              - thread safe access to all methods (same as arraylist)
               - slower than array list
               - **Stack**
                   - thread safe push/pop

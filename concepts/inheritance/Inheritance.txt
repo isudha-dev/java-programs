@@ -1,10 +1,21 @@
 
-
+--------------------------------------------------------------------------------------------------
             | Same package                                      |  Different package             |
--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
             | Same class    | Child class   | Non-child class   |  Child class | Non-child class |
--------------------------------------------------------------------------------------------------
-private     |       ✅      |       ❌      |         ❌        |      ❌      |       ❌        |
-default     |       ✅      |       ✅      |         ✅        |      ❌      |       ❌        |
-protected   |       ✅      |       ✅      |         ✅        |      ✅      |       ❌        |
-public      |       ✅      |       ✅      |         ✅        |      ✅      |       ✅        |
+--------------------------------------------------------------------------------------------------
+private     |       ✅      |       ❌      |         ❌        |      ❌      |       ❌       |
+default     |       ✅      |       ✅      |         ✅        |      ❌      |       ❌       |
+protected   |       ✅      |       ✅      |         ✅        |      ✅      |       ❌       |
+public      |       ✅      |       ✅      |         ✅        |      ✅      |       ✅       |
+--------------------------------------------------------------------------------------------------
+
+
+public - visible everywhere
+private - visible nowhere, just within class
+
+default - visible only within same package, to both child and non-child class.
+child class will access without instantiating and non-child class will need an instance
+
+protected - visible to child class everywhere. Within package, also visible to non-child classes.
+child class will access without instantiating and non-child class will need an instance

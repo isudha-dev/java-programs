@@ -1,18 +1,18 @@
-package oop.abstract1;
+package concepts.abstract1;
 
 public class Test {
 
     public static void main(String[] args) {
-        ExtendingClass1 ec = new ExtendingClass1();
+        ExtendingClass ec = new ExtendingClass();
         ec.publicMethod();
         ec.defaultMethod();
         ec.protectedMethod();
+        ExtendingClass.staticMethod();
+        System.out.println("\nPrinting from client");
         System.out.println(ec.i);
         System.out.println(ec.j);
         System.out.println(ec.k);
-
-        ExtendingClass1.staticMethod();
-        System.out.println(ExtendingClass1.m);
+        System.out.println(ExtendingClass.m);
     }
 
 }

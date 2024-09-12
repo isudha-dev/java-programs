@@ -1,4 +1,4 @@
-package javas.Concurrency.AdderSubtracter;
+package concepts.Concurrency.AdderSubtracter;
 
 import java.util.concurrent.Callable;
 

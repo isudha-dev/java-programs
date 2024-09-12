@@ -1,4 +1,4 @@
-package concepts.comparable_comparator;
+package concepts.comparable_comparator.song;
 
 public class Song implements Comparable<Song>{
     String title;

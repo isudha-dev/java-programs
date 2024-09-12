@@ -1,4 +1,4 @@
-package javas.Collection;
+package concepts.comparable_comparator.student;
 
 import java.util.*;
 
@@ -29,6 +29,20 @@ public class Client {
                 return o1.id - o2.id;
             });
          */
+        studentList2.forEach(student -> System.out.println(student.id));
+
+        studentList2.sort(Comparator.comparingInt((Student o) -> o.id).reversed());
+        studentList2.forEach(student -> System.out.println(student.id));
+
+        studentList2.sort((o1, o2) -> o1.id-o2.id);
+        studentList2.forEach(student -> System.out.println(student.id));
+
+        studentList2.sort(new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return o2.id-o1.id;
+            }
+        });
         studentList2.forEach(student -> System.out.println(student.id));
 
     }
