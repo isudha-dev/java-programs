@@ -1,4 +1,4 @@
-package javas.Generics;
+package concepts.Generics;
 
 public class Dog extends Animal{
     boolean domestic;

@@ -1,4 +1,4 @@
-package concepts.abstract1;
+package concepts.abstractclass;
 
 public abstract class MyAbstractClass {
 

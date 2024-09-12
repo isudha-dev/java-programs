@@ -1,4 +1,4 @@
-package concepts.interface1;
+package concepts.interface_eg;
 
 public interface I2 {
     void foo();

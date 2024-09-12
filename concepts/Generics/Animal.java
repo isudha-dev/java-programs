@@ -1,4 +1,4 @@
-package javas.Generics;
+package concepts.Generics;
 
 public class Animal {
     String name;

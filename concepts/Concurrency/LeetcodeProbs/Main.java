@@ -1,4 +1,4 @@
-package javas.Concurrency.LeetcodeProbs;
+package concepts.Concurrency.LeetcodeProbs;
 
 public class Main {
     public static void main(String[] args) {

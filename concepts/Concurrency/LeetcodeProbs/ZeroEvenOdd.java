@@ -1,4 +1,4 @@
-package javas.Concurrency.LeetcodeProbs;
+package concepts.Concurrency.LeetcodeProbs;
 
 import java.util.concurrent.Semaphore;
 import java.util.function.IntConsumer;

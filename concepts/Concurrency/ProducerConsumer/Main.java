@@ -1,4 +1,4 @@
-package javas.Concurrency.ProducerConsumer;
+package concepts.Concurrency.ProducerConsumer;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

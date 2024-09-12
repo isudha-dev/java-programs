@@ -1,4 +1,4 @@
-package javas.Concurrency.AdderSutracterAtomic;
+package concepts.Concurrency.AdderSutracterAtomic;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

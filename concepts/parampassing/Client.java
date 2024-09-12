@@ -1,4 +1,4 @@
-package oop.parampassing;
+package concepts.parampassing;
 
 public class Client {
 

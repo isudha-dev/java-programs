@@ -1,4 +1,4 @@
-package oop.constructor;
+package concepts.constructor;
 
 public class Constructor {
     private int attr1;

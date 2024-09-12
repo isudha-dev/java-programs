@@ -1,4 +1,4 @@
-package javas.Lambda;
+package concepts.Lambda;
 
 public interface Flyable {
 

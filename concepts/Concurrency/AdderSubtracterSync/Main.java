@@ -1,4 +1,4 @@
-package javas.Concurrency.AdderSubtracterSync;
+package concepts.Concurrency.AdderSubtracterSync;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

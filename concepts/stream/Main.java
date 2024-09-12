@@ -1,4 +1,4 @@
-package oop.stream;
+package concepts.stream;
 
 import java.util.List;
 import java.util.Optional;

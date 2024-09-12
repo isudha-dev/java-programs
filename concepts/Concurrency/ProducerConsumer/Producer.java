@@ -1,4 +1,4 @@
-package javas.Concurrency.ProducerConsumer;
+package concepts.Concurrency.ProducerConsumer;
 
 public class Producer implements Runnable{
 

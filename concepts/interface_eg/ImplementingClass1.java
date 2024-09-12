@@ -1,4 +1,4 @@
-package concepts.interface1;
+package concepts.interface_eg;
 
 public class ImplementingClass1 implements MyInterface{
 

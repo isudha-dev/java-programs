@@ -1,8 +1,8 @@
-package javas.Concurrency.AdderSubtracterMutex;
+package concepts.Concurrency.AdderSubtracterMutex;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.locks.Lock;
-import javas.Concurrency.AdderSubtracterMutex.Value;
+import concepts.Concurrency.AdderSubtracterMutex.Value;
 
 public class Subtracter implements Callable<Void> {
     Value v;
